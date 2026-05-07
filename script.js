@@ -443,6 +443,27 @@ document.querySelectorAll('.work-device-wrap, .cs-hero-device').forEach(wrap => 
     });
 });
 
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav');
+
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        navToggle.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu when a link is clicked
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
+
 // Initialize Lucide icons
 if (typeof lucide !== 'undefined') {
     lucide.createIcons();
