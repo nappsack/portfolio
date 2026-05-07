@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meevo — Chris Nappi</title>
+    <meta name="description" content="Leading the redesign of Meevo, an enterprise salon/spa management platform — from legacy UI to modern design system across a $1.6M, 18-month engagement.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <div class="avatar"></div>
+                <div class="logo-text">
+                    <h1 class="name">Chris Nappi</h1>
+                    <p class="title">Product Design Lead</p>
+                </div>
+            </div>
+        </a>
+        <nav class="nav">
+            <a href="index.html#work" class="nav-link">Work</a>
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#experience" class="nav-link">Experience</a>
+        </nav>
+    </header>
+
+    <!-- Case Study Hero -->
+    <section class="cs-hero">
+        <div class="container">
+            <a href="index.html#work" class="cs-back-link"><i data-lucide="arrow-left" style="width:16px;height:16px;"></i> Back to work</a>
+            <div class="cs-hero-content fade-in-element">
+                <h2 class="cs-title">Redesigning an Enterprise Platform at Scale</h2>
+                <p class="cs-subtitle">Leading design strategy, systems, and a growing team through an 18-month, $1.6M engagement to modernize Meevo's highest-traffic product areas.</p>
+            </div>
+            <div class="cs-hero-image fade-in-element">
+                <div class="cs-hero-device">
+                    <img src="images/meevo/hero.png" alt="iPad showing Meevo Appointment Book redesign" class="cs-hero-device-frame">
+                    <video class="cs-hero-device-screen" muted loop playsinline>
+                        <source src="images/meevo/appointment-book-video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Facts -->
+    <section class="cs-section">
+        <div class="container">
+            <div class="cs-facts fade-in-element">
+                <div class="cs-fact">
+                    <span class="cs-fact-label">Client</span>
+                    <span class="cs-fact-value">Meevo (Millennium Systems International)</span>
+                </div>
+                <div class="cs-fact">
+                    <span class="cs-fact-label">Duration</span>
+                    <span class="cs-fact-value">March 2025 – September 2026</span>
+                </div>
+                <div class="cs-fact">
+                    <span class="cs-fact-label">My Role</span>
+                    <span class="cs-fact-value">Sole Design Lead (Year 1), then Staff-Facing Lead</span>
+                </div>
+                <div class="cs-fact">
+                    <span class="cs-fact-label">Team</span>
+                    <span class="cs-fact-value">7 designers, 2 PMs, 1 Tech Lead, 1 Sr. Advisor</span>
+                </div>
+                <div class="cs-fact">
+                    <span class="cs-fact-label">Investment</span>
+                    <span class="cs-fact-value">~$1.64M across 5 contract phases</span>
+                </div>
+                <div class="cs-fact">
+                    <span class="cs-fact-label">Key Deliverables</span>
+                    <span class="cs-fact-value">Appointment Book & Register redesign, 3-layer design system, design ops framework</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="cs-section">
+        <div class="container">
+            <h3 class="cs-section-heading fade-in-element">The problem</h3>
+            <div class="cs-two-col fade-in-element">
+                <div class="cs-col-text">
+                    <p class="cs-lead">Meevo was losing $1.7M in annual revenue to churn — and the UX was the primary driver.</p>
+                    <p>The platform had been built over many years with inconsistent patterns, no unified design system, and a desktop-first approach in a world where front desk staff — often 16 to 22 year olds — expected mobile-first, touch-oriented interfaces. Competitors like Vagaro, Square, and Boulevard were winning on ease of use. Enterprise acquisition (European Wax Center) required modern UX and WCAG 2.1 AA compliance. And engineering teams had historically operated in silos, barely touching Figma.</p>
+                    <p>This wasn't just a visual refresh. The product, the process, and the culture all needed to change.</p>
+                </div>
+                <div class="cs-col-visual">
+                    <div class="cs-carousel cs-carousel-compact" data-captions='[
+                        "<strong>Appointment Book — Calendar view</strong> — The legacy calendar with a dark theme, dense grid layout, and toolbar overloaded with unlabeled icons. No touch optimization.",
+                        "<strong>Appointment Book — Booking modal</strong> — The booking form with cramped fields, inconsistent styling, and a layout designed for mouse precision rather than front-desk speed.",
+                        "<strong>Register — Main view</strong> — The register landing screen with oversized color-coded tiles, gendered client selection, and a layout that prioritized visual density over usability.",
+                        "<strong>Register — Service categories</strong> — The service selection grid with color-coded category bars, no search hierarchy, and a split-panel layout that wasted screen real estate.",
+                        "<strong>Register — Drawer manager</strong> — The cash drawer management screen with a text-heavy layout, inconsistent button styling, and no clear visual hierarchy for daily operations."
+                    ]'>
+                        <div class="cs-carousel-viewport">
+                            <div class="cs-carousel-track">
+                                <div class="cs-carousel-slide active">
+                                    <img src="images/meevo/ab-calendar-old.png" alt="Legacy Appointment Book calendar view with dark theme and dense grid">
+                                </div>
+                                <div class="cs-carousel-slide">
+                                    <img src="images/meevo/ab-book-appt-old.png" alt="Legacy Appointment Book booking modal with cramped form fields">
+                                </div>
+                                <div class="cs-carousel-slide">
+                                    <img src="images/meevo/reg-main-old.png" alt="Legacy Register main screen with oversized color-coded tiles">
+                                </div>
+                                <div class="cs-carousel-slide">
+                                    <img src="images/meevo/reg-cart-old.png" alt="Legacy Register service categories with color-coded grid">
+                                </div>
+                                <div class="cs-carousel-slide">
+                                    <img src="images/meevo/reg-drawer-manager-old.png" alt="Legacy Register drawer manager with text-heavy layout">
+                                </div>
+                            </div>
+                            <button class="cs-carousel-btn cs-carousel-prev" aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
+                            <button class="cs-carousel-btn cs-carousel-next" aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
+                        </div>
+                        <div class="cs-carousel-caption-area">
+                            <p class="cs-carousel-caption">
+                                <strong>Appointment Book — Calendar view</strong> — The legacy calendar with a dark theme, dense grid layout, and toolbar overloaded with unlabeled icons. No touch optimization.
+                            </p>
+                        </div>
+                        <div class="cs-carousel-controls">
+                            <div class="cs-carousel-dots"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stat Callouts -->
+    <section class="cs-section cs-section-highlight">
+        <div class="container">
+            <div class="cs-stats fade-in-element">
+                <div class="cs-stat">
+                    <span class="cs-stat-number">$1.7M</span>
+                    <span class="cs-stat-label">in annual revenue lost to UX-driven churn</span>
+                </div>
+                <div class="cs-stat">
+                    <span class="cs-stat-number">5.3M+</span>
+                    <span class="cs-stat-label">clicks per month on the Appointment Book alone</span>
+                </div>
+                <div class="cs-stat">
+                    <span class="cs-stat-number">50+</span>
+                    <span class="cs-stat-label">feature gaps identified in legacy platform audit</span>
+                </div>
+                <div class="cs-stat">
+                    <span class="cs-stat-number">3,500</span>
+                    <span class="cs-stat-label">business accounts on the platform</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Role -->
+    <section class="cs-section">
+        <div class="container">
+            <h3 class="cs-section-heading fade-in-element">My role</h3>
+            <div class="cs-body-text fade-in-element">
+                <p>This was my first Design Lead role. For the first year, I was the sole design lead across every workstream — owning strategy, mentoring 3 to 5 designers, managing stakeholder relationships, building the design system from scratch, and performing hands-on IC work on the Appointment Book, the most complex area of the product. All at once.</p>
+                <p>After a year of navigating that tension, I advocated for a second Design Lead to take the client-facing workstreams. That freed me to focus where it mattered most — staff-facing product work, the design system, and the design-engineering partnership.</p>
+            </div>
+
+            <div class="cs-role-grid fade-in-element">
+                <div class="cs-role-card">
+                    <i data-lucide="compass" class="cs-card-icon"></i>
+                    <h4 class="cs-role-title">Strategy & Vision</h4>
+                    <p>As sole Design Lead for the first year, owned design direction across all workstreams. Led feature prioritization, competitor research, and data-informed decisions for the most complex areas of the product.</p>
+                </div>
+                <div class="cs-role-card">
+                    <i data-lucide="layers" class="cs-card-icon"></i>
+                    <h4 class="cs-role-title">Design System Architecture</h4>
+                    <p>Created a three-layer Figma library system from scratch. Defined design tokens, component documentation standards, and a readiness model that replaced "done/not done" with honest milestone tracking.</p>
+                </div>
+                <div class="cs-role-card">
+                    <i data-lucide="users" class="cs-card-icon"></i>
+                    <h4 class="cs-role-title">Team Leadership</h4>
+                    <p>Mentored designers across experience levels, ran structured critiques, created onboarding materials, and grew the team from a 2-person proof of concept to a 7+ person sustained design operation.</p>
+                </div>
+                <div class="cs-role-card">
+                    <i data-lucide="workflow" class="cs-card-icon"></i>
+                    <h4 class="cs-role-title">Process Design</h4>
+                    <p>Rebuilt how the team estimated, categorized, refined, and delivered work — from ticket taxonomy to sprint cadence to a 10-step handoff process that gave developers exactly what they needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Approach -->
+    <section class="cs-section">
+        <div class="container">
+            <h3 class="cs-section-heading fade-in-element">The approach</h3>
+
+            <!-- Phase Timeline -->
+            <div class="cs-timeline fade-in-element">
+                <div class="cs-timeline-item">
+                    <div class="cs-timeline-marker"></div>
+                    <div class="cs-timeline-content">
+                        <span class="cs-timeline-date">Phase 101 — Mar–Apr 2025</span>
+                        <h4>Prove the vision</h4>
+                        <p>Future-state prototypes for 6 key workflows. Built to support an enterprise client pitch for European Wax Center. Introduced the "Opportunities" upselling concept.</p>
+                    </div>
+                </div>
+                <div class="cs-timeline-item">
+                    <div class="cs-timeline-marker"></div>
+                    <div class="cs-timeline-content">
+                        <span class="cs-timeline-date">Phase 102 — May–Jun 2025</span>
+                        <h4>Lay the foundation</h4>
+                        <p>I joined the project. Expanded Appointment Book workflows, began Register discovery, and started the first design system work. Mentorship into DL role began.</p>
+                    </div>
+                </div>
+                <div class="cs-timeline-item">
+                    <div class="cs-timeline-marker"></div>
+                    <div class="cs-timeline-content">
+                        <span class="cs-timeline-date">Phase 103 — Jul–Oct 2025</span>
+                        <h4>Scale the team</h4>
+                        <p>Grew to a full product team — 3 designers, formal sprint process, 10 product areas. Conducted a 50+ item feature gap analysis that became the redesign roadmap.</p>
+                    </div>
+                </div>
+                <div class="cs-timeline-item">
+                    <div class="cs-timeline-marker"></div>
+                    <div class="cs-timeline-content">
+                        <span class="cs-timeline-date">Phase 104 — Oct 2025–Jan 2026</span>
+                        <h4>Navigate pressure</h4>
+                        <p>Expanded to 5 designers under heavy delivery pressure. Managed shifting client expectations around speed vs. quality while keeping the team focused and steady.</p>
+                    </div>
+                </div>
+                <div class="cs-timeline-item">
+                    <div class="cs-timeline-marker"></div>
+                    <div class="cs-timeline-content">
+                        <span class="cs-timeline-date">Phase 105 — Jan–Sep 2026</span>
+                        <h4>Mature the operation</h4>
+                        <p>After a year as sole DL, brought on a second Design Lead to own client-facing workstreams. Launched a design system stabilization spike. Shifted to feature-level delivery with Kanban tracking. Established AI-assisted design ops framework for the full team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design System -->
+    <section class="cs-section">
+        <div class="container">
+            <h3 class="cs-section-heading fade-in-element">Building the design system</h3>
+            <div class="cs-two-col fade-in-element">
+                <div class="cs-col-text">
+                    <p class="cs-lead">Meevo had never had a design system. I built one from scratch — and then convinced a skeptical engineering team to actually use it.</p>
+                    <p>I created a three-layer Figma library architecture: a Global UI Library for universal foundations (buttons, inputs, icons, tokens), a Staff-Facing Pattern Library for Appointment Book and Register patterns, and a Client-Facing Pattern Library for consumer booking and purchasing flows. The rule was simple — if a component appears in both staff and client products, it lives in Global.</p>
+                    <p>When the Director of Product expected the system to be "complete in 2 weeks," I created a readiness model that reframed the conversation. Instead of done vs. not done, we tracked five milestones per library: Usable, Consolidated, Documented, Operationalized, and Governed. Each milestone had three dimensions — design usable, dev usable, and product usable. It gave stakeholders a clear finish line without pretending a design system stops evolving.</p>
+                </div>
+                <div class="cs-col-visual">
+                    <img src="images/meevo/ds-future-model.png" alt="Three-tier design system architecture: Global UI Library, domain-level pattern libraries, and workstream files" class="cs-real-image cs-image-shadow">
+                </div>
+            </div>
+
+            <div class="cs-callout fade-in-element">
+                <p class="cs-callout-text">"A design system is never done — it reaches states of readiness."</p>
+            </div>
+
+            <!-- DS Stats -->
+            <div class="cs-stats cs-stats-compact fade-in-element">
+                <div class="cs-stat">
+                    <span class="cs-stat-number">3</span>
+                    <span class="cs-stat-label">Figma libraries created</span>
+                </div>
+                <div class="cs-stat">
+                    <span class="cs-stat-number">383+</span>
+                    <span class="cs-stat-label">design token bindings applied</span>
+                </div>
+                <div class="cs-stat">
+                    <span class="cs-stat-number">5</span>
+                    <span class="cs-stat-label">readiness milestones defined</span>
+                </div>
+                <div class="cs-stat">
+                    <span class="cs-stat-number">50+</span>
+                    <span class="cs-stat-label">components fully documented (and growing)</span>
+                </div>
+            </div>
+
+            <!-- Design System Carousel -->
+            <div class="cs-carousel fade-in-element">
+                <div class="cs-carousel-viewport">
+                    <div class="cs-carousel-track">
+                        <div class="cs-carousel-slide active">
+                            <img src="images/meevo/ds-current-model.png" alt="Current two-tier architecture: Global UI Library feeding directly into workstream files">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/meevo/ds-future-model.png" alt="New three-tier architecture: Global UI Library, domain-level pattern libraries, and workstream files">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/meevo/ds-milestones.png" alt="Milestone tracking board showing progress across Global, Staff-facing, and Client-facing libraries through 5 readiness stages">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/meevo/ds-colors.png" alt="Color system showing light mode and dark mode tokens across primary, neutral, system, status, and category colors">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/meevo/ds-variables.png" alt="Figma variables panel showing 85 color tokens with light and dark mode values">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/meevo/ds-cards.png" alt="Component documentation for Cards showing anatomy, behavior, usage guidelines, and do/don't examples">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/meevo/ds-components.png" alt="Component showcase showing appointment booking components across desktop and mobile breakpoints with ready-for-dev status">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/meevo/ds-storybook.png" alt="Storybook component browser showing the Button component with variant controls and documentation">
+                        </div>
+                    </div>
+                    <button class="cs-carousel-btn cs-carousel-prev" aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
+                    <button class="cs-carousel-btn cs-carousel-next" aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
+                </div>
+                <div class="cs-carousel-caption-area">
+                    <p class="cs-carousel-caption">
+                        <strong>Current architecture</strong> — The original two-tier model: a single Global UI Library feeding directly into five workstream files, each with WIP and Delivery branches.
+                    </p>
+                </div>
+                <div class="cs-carousel-controls">
+                    <div class="cs-carousel-dots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transforming Design–Engineering -->
+    <section class="cs-section">
+        <div class="container">
+            <h3 class="cs-section-heading fade-in-element">Transforming design–engineering collaboration</h3>
+            <div class="cs-body-text fade-in-element">
+                <p class="cs-lead">When I started, Meevo's dev teams barely used Figma and resisted UX involvement. By the end, I was invited into their Microsoft Teams developer space — something unprecedented for design.</p>
+                <p>The shift didn't happen overnight. I connected Meevo developers with our tech lead, advocated for developer presence at every step of the design process, and used my access to their Teams workspace to provide pre-QA design feedback — reducing friction before it reached formal review. I created an update contract for design system changes that told developers exactly what changed, whether it was visual or behavioral, and whether to consume the update now or later.</p>
+                <p>The design system became the bridge. With developers increasingly using AI-assisted "vibe-coding" from Figma assets, the quality of our component library directly impacted the quality of their output. The framing I used with stakeholders: "Quality you feed the design system now equals the quality AI produces in 3 to 6 months." That message landed.</p>
+            </div>
+
+            <div class="cs-two-col fade-in-element">
+                <div class="cs-before-after">
+                    <h4 class="cs-ba-label">Before</h4>
+                    <ul class="cs-ba-list">
+                        <li>Dev teams barely used Figma</li>
+                        <li>Resisted UX involvement</li>
+                        <li>No reusable component structure</li>
+                        <li>Inconsistent UI across features</li>
+                        <li>Design and engineering in silos</li>
+                    </ul>
+                </div>
+                <div class="cs-before-after cs-after">
+                    <h4 class="cs-ba-label">After</h4>
+                    <ul class="cs-ba-list">
+                        <li>Building codebase aligned with design system</li>
+                        <li>Using Storybook with component repo</li>
+                        <li>Leveraging AI from Figma assets</li>
+                        <li>Commenting directly in Figma files</li>
+                        <li>Weekly design-dev sync established</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Integration -->
+    <section class="cs-section cs-section-highlight">
+        <div class="container">
+            <h3 class="cs-section-heading fade-in-element">AI as a design accelerator</h3>
+            <div class="cs-body-text fade-in-element">
+                <p>My approach to AI has two phases. First, I need to fully understand what a tool is actually capable of — not the marketing pitch, but the real mechanics. Then I figure out where those capabilities can be meaningfully applied to the work my team is doing. I learned quickly how Claude Code could be leveraged for elaboration, strategy, documentation, and prototyping — but I didn't stop at using it myself. I made it so every designer on the team could do the same.</p>
+            </div>
+            <div class="cs-ai-grid fade-in-element">
+                <div class="cs-ai-card">
+                    <i data-lucide="git-branch" class="cs-card-icon"></i>
+                    <h4>Shared AI workspace</h4>
+                    <p>Created a GitHub repository that served as a shared context folder for Claude Code across the entire design team. Designers could push and pull updates to project context as they worked — giving every AI session the full picture of the engagement, not just one person's slice of it.</p>
+                </div>
+                <div class="cs-ai-card">
+                    <i data-lucide="rocket" class="cs-card-icon"></i>
+                    <h4>Team enablement</h4>
+                    <p>Didn't just implement AI tools for myself — I provided training, helped every designer set up their environment, and built a process framework that empowered the team to become AI power users on their own.</p>
+                </div>
+                <div class="cs-ai-card">
+                    <i data-lucide="file-text" class="cs-card-icon"></i>
+                    <h4>Design elaboration</h4>
+                    <p>Established a structured process for AI-assisted ticket elaboration — context gathering, requirements documentation, scenario mapping, and edge case identification — all before any design work began.</p>
+                </div>
+                <div class="cs-ai-card">
+                    <i data-lucide="pen-tool" class="cs-card-icon"></i>
+                    <h4>UX strategy & prototyping</h4>
+                    <p>Used AI for UX strategy development, annotated design deliverables, and building highly detailed, fully functioning prototypes — accelerating work that would normally take days into hours.</p>
+                </div>
+                <div class="cs-ai-card">
+                    <i data-lucide="book-open" class="cs-card-icon"></i>
+                    <h4>Design system documentation</h4>
+                    <p>Leveraged AI to establish component documentation standards, generate initial drafts, and maintain consistency across all three Figma libraries.</p>
+                </div>
+                <div class="cs-ai-card">
+                    <i data-lucide="cable" class="cs-card-icon"></i>
+                    <h4>Design-dev bridge</h4>
+                    <p>Positioned the design system as the AI pipeline: Figma → Storybook → AI-assisted development. Structured assets so AI could consume them reliably — quality in, quality out.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stakeholder Management -->
+    <section class="cs-section">
+        <div class="container">
+            <h3 class="cs-section-heading fade-in-element">Leading through complexity</h3>
+            <div class="cs-body-text fade-in-element">
+                <p class="cs-lead">Meevo's needs shifted constantly. Their product team was brand new — most of them newer to the company than I was to the project — which meant priorities, requirements, and even goals could change on a dime. Sometimes they didn't yet know what they wanted or needed.</p>
+                <p>That kind of chaos requires a team that doesn't just react but actively works to stay ahead. I ran countless internal working sessions where we whiteboarded every possible pathway forward — diagramming process improvements, realigning on delivery speed, and finding ways to maintain quality without slowing down. When things went sideways, we didn't panic. We regrouped, reframed, and showed up the next day with a plan.</p>
+                <p>Restoring and maintaining stakeholder confidence became a constant thread throughout the engagement. The work itself mattered, but so did how we communicated it. I shifted the team toward visible progress, feature-level delivery, and clear prioritization — reducing ceremony and focusing on the things stakeholders actually needed to see. Over 18 months and 5 contract renewals, we proved that a design team can be a steady, adaptive partner even when the ground keeps shifting underneath.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section class="cs-section">
+        <div class="container">
+            <h3 class="cs-section-heading fade-in-element">Outcomes</h3>
+            <div class="cs-outcomes fade-in-element">
+                <div class="cs-outcome">
+                    <h4>Product impact</h4>
+                    <ul>
+                        <li>Redesigned the highest-traffic product areas (Appointment Book, Register) for a platform serving 3,500+ businesses</li>
+                        <li>Established WCAG 2.1 AA accessibility as a first-class design constraint</li>
+                        <li>Defined measurable success metrics: 20% fewer clicks, 15% opt-in, minimum 4-star survey rating</li>
+                    </ul>
+                </div>
+                <div class="cs-outcome">
+                    <h4>System impact</h4>
+                    <ul>
+                        <li>Created a three-layer design system architecture — the first centralized source of truth in the product's history</li>
+                        <li>Applied 383+ design token variable bindings across core components</li>
+                        <li>Built a readiness model adopted by product leadership for milestone tracking</li>
+                    </ul>
+                </div>
+                <div class="cs-outcome">
+                    <h4>Team impact</h4>
+                    <ul>
+                        <li>Grew team from 2-person proof of concept to 7+ person sustained design operation</li>
+                        <li>Transformed design-engineering relationship from adversarial to collaborative</li>
+                        <li>Maintained client relationship through 5 contract renewals (~$1.64M total investment)</li>
+                    </ul>
+                </div>
+                <div class="cs-outcome">
+                    <h4>Process impact</h4>
+                    <ul>
+                        <li>Designed a ticket categorization system the client adopted organization-wide</li>
+                        <li>Created a three-stage review process and 10-step handoff framework</li>
+                        <li>Positioned the design system to enable AI-assisted development at scale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="cs-section cs-section-highlight">
+        <div class="container">
+            <h3 class="cs-section-heading fade-in-element">What I learned</h3>
+            <div class="cs-body-text fade-in-element">
+                <p>Meevo was the project that shaped me as a design leader. It taught me that designing the process is as important as designing the product — and that the best systems work isn't just about components, it's about trust, communication, and knowing when to push back versus when to adapt.</p>
+                <p>I learned to use data to decide where design effort matters most: 83% of locations didn't use clock-in indicators, so we gave it appropriate — not maximum — attention. I learned that stakeholder management is a design skill. And I learned that AI isn't something to be afraid of or to overhype — it's a tool that, when integrated thoughtfully, makes space for better human decisions.</p>
+                <p>If I could do it all again, I'd push earlier for the second Design Lead role and resist the instinct to absorb every gap personally. But the scars from that tension are part of what make me better at the work now.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Navigation -->
+    <section class="cs-section cs-nav">
+        <div class="container">
+            <h3 class="cs-nav-heading fade-in-element">Continue reading</h3>
+            <div class="cs-nav-grid cs-nav-single fade-in-element">
+                <a href="case-study-pos.html" class="cs-nav-card cs-nav-next" style="text-align:left;">
+                    <span class="cs-nav-direction" style="justify-content:flex-start;">Next case study <i data-lucide="arrow-right"></i></span>
+                    <div class="cs-nav-preview" style="flex-direction:row;">
+                        <div class="cs-nav-image dark-bg"></div>
+                        <div class="cs-nav-info" style="text-align:left;">
+                            <h4 class="cs-nav-title">Stepping Into the Leadership Gap</h4>
+                            <p class="cs-nav-tags">Design Leadership, Enterprise UX, Sprint-Based Delivery</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-name">Chris Nappi</span>
+                    <div class="footer-links">
+                        <a href="https://www.linkedin.com/in/chrisnappi88/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn">
+                            <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="mailto:chrisnappi88@gmail.com" class="footer-link" aria-label="Email">
+                            <i data-lucide="mail"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <p class="footer-tagline">Created with love mostly through vibecoding. <a href="#" class="footer-process-link" id="open-process-modal">See my process here.</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Process Modal -->
+    <div class="process-modal-overlay" id="process-modal">
+        <div class="process-modal">
+            <button class="process-modal-close" id="close-process-modal" aria-label="Close modal">
+                <i data-lucide="x"></i>
+            </button>
+            <h3 class="process-modal-title">How this site was built</h3>
+            <div class="process-modal-body">
+                <p>I'm going to say the quiet part out loud: AI built this website. And I'm proud of that.</p>
+
+                <p>Most people hide behind the fact that they use AI to create things. I want to flaunt it — because I think the way you use AI says more about you than whether you use it at all.</p>
+
+                <p>I've spent 16 years trying to deploy the portfolio website I always envisioned. I tried everything a non-coder could try — Webflow, Wix, Squarespace, literally just shipping a Figma prototype as my portfolio for the last few years. My most recent attempt had me deep in Framer, convinced I'd finally cracked it. Another unfinished project. The truth is, when you're working full time leading design teams, there's never enough time or energy left to also build and maintain your own site. The vision was always there. The bandwidth never was.</p>
+
+                <p>AI changed that equation entirely.</p>
+
+                <p>I designed every screen, every interaction, and every detail of this site in Figma — the same way I design everything. Then I used Claude Code to bring it to life, guiding it step by step through layout, styling, animation, and content. Every decision was mine. Every pixel was intentional. The AI was the tool that finally closed the gap between what I could envision and what I could ship.</p>
+
+                <p>But the site itself is just one output. The real unlock came from the way I've been working on projects like Meevo — building an AI-assisted design operations framework around markdown files, GitHub repositories, and context systems that keep multiple AI agents working with the most comprehensive understanding of the project possible. Over 18 months of leading that engagement, I accumulated a massive amount of project data: strategy documents, design rationale, stakeholder feedback, research findings, system documentation, the works.</p>
+
+                <p>So when it came time to write the case studies on this site, I didn't start from scratch. I pointed AI at all of that structured context and used it to help me aggregate, synthesize, and draft the narratives you're reading here. Because why wouldn't I? The craft is in the curation, the framing, and the judgment. The AI handles the grunt work that used to make case studies the thing designers never finish.</p>
+
+                <p>The result is the thing you're looking at right now — a portfolio that actually represents who I am, built the way I believe design should work. Not despite AI, but because of it.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
