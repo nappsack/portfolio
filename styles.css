@@ -371,6 +371,37 @@ body {
     color: var(--text-dark);
 }
 
+.section-heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.section-heading-row .section-heading {
+    margin-bottom: var(--spacing-element);
+}
+
+.resume-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    background: var(--primary-red);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 100px;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+}
+
+.resume-link:hover {
+    background: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .work-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
