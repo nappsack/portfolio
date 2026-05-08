@@ -108,7 +108,7 @@ const carouselWords = [
     'provide team mentorship',
     'turn chaos into process',
     'usability test',
-    'sing poorly at karaoke, but my heart will be in it',
+    'sing poorly at karaoke',
     'establish design system governance',
     'strengthen cross-functional alignment',
     'create component libraries',
@@ -133,8 +133,8 @@ const carouselWords = [
     'dance badly but with confidence',
     'do CTA audits',
     'do native mobile design',
-    'recite the prologue to the Canterbury Tales',
-    'white-label systems',
+    'recite the Canterbury Tales',
+    'build white-label systems',
     'advocate for the end user',
     'make designers better designers',
     'run sprint planning',
@@ -461,6 +461,21 @@ if (navToggle && navMenu) {
             navToggle.classList.remove('active');
             navToggle.setAttribute('aria-expanded', 'false');
         });
+    });
+}
+
+// About read more toggle
+const aboutReadMoreBtn = document.getElementById('about-read-more-btn');
+const aboutMore = document.getElementById('about-more');
+
+if (aboutReadMoreBtn && aboutMore) {
+    aboutReadMoreBtn.addEventListener('click', () => {
+        const isOpen = aboutMore.classList.toggle('open');
+        aboutReadMoreBtn.classList.toggle('open');
+        aboutReadMoreBtn.innerHTML = isOpen
+            ? 'Read less <i data-lucide="chevron-down" style="width:16px;height:16px;"></i>'
+            : 'Read more <i data-lucide="chevron-down" style="width:16px;height:16px;"></i>';
+        lucide.createIcons();
     });
 }
 
