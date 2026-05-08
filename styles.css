@@ -460,13 +460,16 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 270px;
+    transform: translate(-50%, calc(-50% - 12px));
+    width: 418px;
     height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid #CECECE;
+    border: 1px solid #636363;
+}
+
+.work-device-video-pos {
+    transform: translate(-50%, -50%);
+    width: 337px;
+    border: none;
 }
 
 .placeholder-image {
@@ -1053,21 +1056,45 @@ body {
         grid-template-columns: 1fr;
         gap: var(--spacing-element);
     }
-    
+
     .hero-image {
         order: -1;
+        height: 300px;
     }
-    
+
+    .profile-photo {
+        width: 300px;
+        height: 300px;
+    }
+
     .hero-text {
         height: auto;
     }
-    
+
     .work-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .nav {
         gap: 1.5rem;
+    }
+
+    .about-body {
+        grid-template-columns: 1fr;
+    }
+
+    .about-intro-text {
+        font-size: 24px;
+    }
+
+    .about-photo {
+        height: 300px;
+    }
+
+    .section-heading-row {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
     }
 }
 
@@ -1108,6 +1135,7 @@ body {
         display: none;
         width: 100%;
         flex-direction: column;
+        align-items: center;
         gap: 0;
         padding-top: 1rem;
         border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -1120,6 +1148,10 @@ body {
 
     .nav-link {
         padding: 0.75rem 0;
+    }
+
+    .nav .resume-link {
+        margin-top: 0.75rem;
     }
     
     .hero {
@@ -1163,7 +1195,21 @@ body {
     }
     
     .work-image {
-        height: 250px;
+        height: 220px;
+    }
+
+    .work-device-video {
+        width: 280px;
+        transform: translate(-50%, calc(-50% - 8px));
+    }
+
+    .about-intro-text {
+        font-size: 20px;
+    }
+
+    .resume-link {
+        font-size: 0.8rem;
+        padding: 8px 16px;
     }
 }
 
@@ -1171,6 +1217,7 @@ body {
     .hero-greeting,
     .hero-name {
         font-size: 2rem;
+        line-height: 2.2rem;
     }
 
     .hero-description,
@@ -1182,29 +1229,56 @@ body {
     .hero-carousel {
         height: 1.7em;
     }
-    
+
+    .hero-text {
+        padding: 24px;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+
+    .profile-photo {
+        width: 250px;
+        height: 250px;
+    }
+
     .section-heading {
         font-size: 2rem;
     }
-    
-    .nav {
-        gap: 1rem;
-    }
-    
-    .nav-link {
-        font-size: 0.9rem;
-    }
-    
+
     .work-grid {
         gap: 1.5rem;
     }
-    
+
     .work-info {
         padding: 1.5rem;
     }
-    
+
     .work-title {
         font-size: 1.125rem;
+    }
+
+    .work-device-video {
+        width: 200px;
+        transform: translate(-50%, calc(-50% - 6px));
+    }
+
+    .work-image {
+        height: 180px;
+    }
+
+    .about-intro-text {
+        font-size: 18px;
+        padding: var(--spacing-container);
+    }
+
+    .about-photo {
+        height: 250px;
+    }
+
+    .about-text {
+        font-size: 16px;
     }
 }
 

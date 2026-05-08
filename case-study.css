@@ -69,13 +69,17 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 392px;
+    transform: translate(-50%, calc(-50% - 18px)) scaleY(1.012);
+    width: 624px;
+    max-width: 85%;
     height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 2px solid #CECECE;
+    border: 2px solid #636363;
+}
+
+.cs-hero-device-screen-pos {
+    transform: translate(-50%, -50%);
+    width: 503px;
+    border: none;
 }
 
 /* Placeholder Images */
@@ -919,7 +923,7 @@
 
 @media (max-width: 768px) {
     .cs-hero {
-        margin-top: 140px;
+        margin-top: 80px;
     }
 
     .cs-title {
