@@ -3754,7 +3754,7 @@
         <ul class="dproc-list">
           <li><strong>Components section</strong> &mdash; shared, in-progress components, componentized as you go.</li>
           <li><strong>Sprints section</strong> &mdash; organized by sprint number, then feature name.</li>
-          <li>Componentizing early means <strong>faster iteration</strong>, consistent updates, and less rework at delivery.</li>
+          <li><span>Componentizing early means <strong>faster iteration</strong>, consistent updates, and less rework at delivery.</span></li>
           <li>Can't componentize something yet? Flag it in the weekly internal working session.</li>
         </ul>
         <div class="dproc-foot"><button class="dproc-next" type="button" data-stage="1">Next: Review <i class="ph ph-arrow-right"></i></button></div>
@@ -3763,11 +3763,12 @@
       <div class="dproc-panel dproc-panel--wip" data-stage="1">
         <div class="dproc-panel-eyebrow">Stage 02 · Review Gate</div>
         <h3 class="dproc-panel-title">Review</h3>
-        <p class="dproc-panel-lead">Three review stages carry work from exploration to dev-ready &mdash; each with a clear owner and exit criteria.</p>
-        <div class="dproc-grid dproc-grid--3">
+        <p class="dproc-panel-lead">Four review stages carry work from exploration to dev-ready &mdash; each with a clear owner and exit criteria.</p>
+        <div class="dproc-grid dproc-grid--4">
           <div class="dproc-item"><h4>1 · Exploration &amp; Design</h4><p>Designer and PO collaborate &mdash; async feedback, mid-sprint check-ins, and end-of-sprint reviews.</p></div>
-          <div class="dproc-item"><h4>2 · Stakeholder Review</h4><p>Present to leadership and confirm alignment with business goals. Approval unlocks delivery prep.</p></div>
-          <div class="dproc-item"><h4>3 · Delivery Prep</h4><p>Docs complete, fully componentized, annotations ready &mdash; a final sign-off before dev-ready.</p></div>
+          <div class="dproc-item"><h4>2 · Internal Design Approval</h4><p>The design team &mdash; and especially me as lead &mdash; sign off first. Nothing reached stakeholders without internal approval.</p></div>
+          <div class="dproc-item"><h4>3 · Stakeholder Review</h4><p>Present to leadership and confirm alignment with business goals. Approval unlocks delivery prep.</p></div>
+          <div class="dproc-item"><h4>4 · Delivery Prep</h4><p>Docs complete, fully componentized, annotations ready &mdash; a final sign-off before dev-ready.</p></div>
         </div>
         <div class="dproc-foot"><button class="dproc-next" type="button" data-stage="2">Next: Delivery File <i class="ph ph-arrow-right"></i></button></div>
       </div>
@@ -3965,9 +3966,8 @@
         <button class="artifact-tab" data-slide="1">Services</button>
         <button class="artifact-tab" data-slide="2">Navigation</button>
         <button class="artifact-tab" data-slide="3">Nav anatomy</button>
-        <button class="artifact-tab" data-slide="4">Nav menu</button>
-        <button class="artifact-tab" data-slide="5">Appt detail</button>
-        <button class="artifact-tab" data-slide="6">Running late</button>
+        <button class="artifact-tab" data-slide="4">Appt detail</button>
+        <button class="artifact-tab" data-slide="5">Running late</button>
         <div class="artifact-car-arrows">
           <button class="artifact-arrow" data-dir="-1" type="button" aria-label="Previous screen"><i class="ph ph-caret-left"></i></button>
           <button class="artifact-arrow" data-dir="1" type="button" aria-label="Next screen"><i class="ph ph-caret-right"></i></button>
@@ -4004,71 +4004,11 @@
           </figure>
         </div>
 
-        <!-- Nav anatomy (recreated in HTML) -->
+        <!-- Nav anatomy (documentation screenshot) -->
         <div class="artifact-slide screen-slide">
           <figure class="screen-fig">
-            <div class="navx">
-              <div class="navx-blk">
-                <div class="navx-blabel">Desktop</div>
-                <div class="navx-row navx-anno">
-                  <span class="navx-w-menu navx-tag">Menu</span>
-                  <span class="navx-w-logo navx-tag">Logo</span>
-                  <span class="navx-w-convo navx-tag">Convo bar</span>
-                  <span class="navx-w-actions navx-tag">Actions</span>
-                  <span class="navx-w-div"></span>
-                  <span class="navx-w-loc navx-tag">Location</span>
-                  <span class="navx-w-user navx-tag">User</span>
-                </div>
-                <div class="navx-row navx-bar">
-                  <button class="navx-w-menu navx-ic" type="button"><i class="ph ph-dots-nine"></i></button>
-                  <div class="navx-w-logo navx-logo">Meevo</div>
-                  <div class="navx-w-convo navx-convo"><i class="ph ph-sparkle navx-spark"></i><span class="navx-convo-ph">What would you like to do?</span><i class="ph ph-info navx-info"></i></div>
-                  <div class="navx-w-actions navx-actions">
-                    <button class="navx-ic" type="button"><i class="ph ph-bell"></i><span class="navx-bell-dot"></span></button>
-                    <button class="navx-ic" type="button"><i class="ph ph-user-list"></i></button>
-                    <button class="navx-ic" type="button"><i class="ph ph-robot"></i></button>
-                  </div>
-                  <div class="navx-w-div navx-div--bar"></div>
-                  <button class="navx-w-loc navx-loc" type="button"><i class="ph ph-map-pin"></i><i class="ph ph-caret-down navx-cd"></i></button>
-                  <button class="navx-w-user navx-user" type="button"><span class="navx-av">M</span><i class="ph ph-caret-down navx-cd"></i></button>
-                </div>
-                <div class="navx-tabs">
-                  <span class="navx-tab navx-tab--active">Tab Title <i class="ph ph-x"></i></span>
-                  <span class="navx-tab">Tab Title <i class="ph ph-x"></i></span>
-                  <span class="navx-tab">Tab Title <i class="ph ph-x"></i></span>
-                  <span class="navx-tab">Tab Title <i class="ph ph-x"></i></span>
-                  <span class="navx-tab">Tab Title <i class="ph ph-x"></i></span>
-                  <span class="navx-tab">Tab Title <i class="ph ph-x"></i></span>
-                  <button class="navx-tab-of" type="button"><i class="ph ph-dots-three"></i></button>
-                </div>
-                <div class="navx-ofnote">Overflow tabs collapse into <i class="ph ph-dots-three"></i></div>
-              </div>
-              <div class="navx-blk navx-mob">
-                <div class="navx-blabel">Mobile</div>
-                <div class="navx-row navx-anno">
-                  <span class="navx-w-mmenu navx-tag">Menu</span>
-                  <span class="navx-w-convo navx-tag">Convo bar</span>
-                  <span class="navx-w-mof navx-tag">Overflow</span>
-                </div>
-                <div class="navx-row navx-bar">
-                  <button class="navx-w-mmenu navx-ic" type="button"><i class="ph ph-dots-nine"></i></button>
-                  <div class="navx-w-convo navx-convo"><i class="ph ph-sparkle navx-spark"></i><span class="navx-convo-ph">What would you like to do?</span><i class="ph ph-info navx-info"></i></div>
-                  <button class="navx-w-mof navx-ic" type="button"><i class="ph ph-dots-three"></i></button>
-                </div>
-              </div>
-            </div>
-            <figcaption class="screen-cap"><b>Navigation anatomy</b> &mdash; one bar across desktop &amp; mobile: menu, a conversational command bar, quick actions, location, user, and tabs that collapse into an overflow.</figcaption>
-          </figure>
-        </div>
-
-        <!-- Nav menu, expanded (screenshot) -->
-        <div class="artifact-slide screen-slide">
-          <figure class="screen-fig">
-            <div class="browser-frame">
-              <div class="browser-chrome"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">app.meevo.com/appointment-book</div></div>
-              <div class="browser-viewport"><img src="./images/meevo/screen-nav-menu.png" alt="Navigation menu expanded with flyout submenu"></div>
-            </div>
-            <figcaption class="screen-cap"><b>The menu, open</b> &mdash; global areas with keyboard shortcuts and a flyout submenu (Register).</figcaption>
+            <div class="doc-frame" style="max-width:1040px;overflow:hidden;"><img src="./images/meevo/screen-nav-anatomy.png" style="width:100%;display:block;" alt="Navigation bar anatomy documentation — desktop and mobile"></div>
+            <figcaption class="screen-cap"><b>Navigation anatomy</b> &mdash; the nav bar across desktop and mobile, every region labeled: menu, the conversational command bar, actions, location, user, and overflow tabs.</figcaption>
           </figure>
         </div>
 
