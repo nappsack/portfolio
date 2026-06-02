@@ -28,3 +28,6 @@ Temporary Items
 *.swp
 *.swo
 *~
+
+# Internal case-study source docs — never publish to the public site
+case studies/meevo/
