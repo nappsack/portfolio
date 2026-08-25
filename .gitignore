@@ -31,3 +31,8 @@ Temporary Items
 
 # Internal case-study source docs — never publish to the public site
 case studies/meevo/
+
+# Node / Netlify
+node_modules/
+.netlify/
+.env

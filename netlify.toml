@@ -1,3 +1,14 @@
+[functions]
+  node_bundler = "esbuild"
+  # The chat function reads the knowledge base off disk at runtime.
+  included_files = ["kb-public.md"]
+
+[[redirects]]
+  from = "/api/chat"
+  to = "/.netlify/functions/chat"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

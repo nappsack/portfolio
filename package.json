@@ -1,0 +1,15 @@
+{
+  "name": "chrisnappi-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "chrisnappi.com — static portfolio site plus the /api/chat function",
+  "scripts": {
+    "kb": "python3 ~/.thinkos/scripts/kb_public.py",
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.120.0",
+    "@netlify/blobs": "^11.0.1"
+  }
+}
