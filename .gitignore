@@ -32,6 +32,10 @@ Temporary Items
 # Internal case-study source docs — never publish to the public site
 case studies/meevo/
 
+# Raw source screenshots. The site serves its own copies from images/,
+# so these only add weight and expose internal captures on a public host.
+case studies/*/images/
+
 # Node / Netlify
 node_modules/
 .netlify/

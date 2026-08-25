@@ -1090,6 +1090,11 @@
 
 .cs-wipe-carousel {
     margin-top: var(--spacing-element);
+    /* The images are 1368x952, so at full container width the component
+       fills a laptop viewport on its own. Cap it and centre. */
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cs-wipe-viewport {
