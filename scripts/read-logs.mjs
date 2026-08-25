@@ -68,17 +68,24 @@ if (!all.length) {
   process.exit(0);
 }
 
-// Opus 5 rates. Cache writes bill at 1.25x input, reads at 0.1x.
-const IN = 5, OUT = 25;
-const spend = all.reduce(
-  (n, e) =>
-    n +
-    ((e.tok_in ?? 0) / 1e6) * IN +
-    ((e.tok_cache_write ?? 0) / 1e6) * IN * 1.25 +
-    ((e.tok_cache_read ?? 0) / 1e6) * IN * 0.1 +
-    ((e.tok_out ?? 0) / 1e6) * OUT,
-  0
-);
+// Priced per entry by the model it recorded, so a log spanning a model
+// switch still totals correctly. Cache writes bill at 1.25x input, reads
+// at 0.1x. $/million tokens.
+const RATES = {
+  "claude-opus-5": [5, 25],
+  "claude-sonnet-5": [3, 15],
+  "claude-haiku-4-5": [1, 5],
+};
+const cost = (e) => {
+  const [i, o] = RATES[e.model] ?? RATES["claude-sonnet-5"];
+  return (
+    ((e.tok_in ?? 0) / 1e6) * i +
+    ((e.tok_cache_write ?? 0) / 1e6) * i * 1.25 +
+    ((e.tok_cache_read ?? 0) / 1e6) * i * 0.1 +
+    ((e.tok_out ?? 0) / 1e6) * o
+  );
+};
+const spend = all.reduce((n, e) => n + cost(e), 0);
 const visitors = new Set(all.map((e) => e.ip)).size;
 const blocked = all.filter((e) => e.blocked).length;
 const errors = all.filter((e) => e.error).length;

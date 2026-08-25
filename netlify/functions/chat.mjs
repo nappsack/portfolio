@@ -6,7 +6,10 @@ import { join } from "node:path";
 
 // Override with the CHAT_MODEL environment variable to switch models without
 // a code change. Netlify: Site configuration → Environment variables.
-const MODEL = process.env.CHAT_MODEL ?? "claude-opus-5";
+//
+// Sonnet 5 since 2026-08-25. Tested against Opus 5 on the same questions:
+// same factual accuracy, same voice, roughly 40% of the cost.
+const MODEL = process.env.CHAT_MODEL ?? "claude-sonnet-5";
 const MAX_TOKENS = 1000;
 
 // Abuse limits. This endpoint is public, so every one of these matters.
