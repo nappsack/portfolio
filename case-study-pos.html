@@ -94,8 +94,9 @@
                     <p>The clock was already ticking. If Point of Sale wasn't design-ready by end of Q1 2025, the entire timeline to replace Oracle would be at risk.</p>
                 </div>
                 <div class="cs-col-visual">
-                    <div class="cs-placeholder-image dark-bg">
-                        <span class="cs-placeholder-label">Problem visualization</span>
+                    <div class="cs-image-captioned" style="margin-top: 0;">
+                        <img src="images/pos/xstore-home.png" alt="The XStore main menu: a textured beige background with ten unlabeled icon tiles and an Xfinity logo filling the right half of the screen">
+                        <p class="cs-gallery-caption"><strong>XStore's main menu.</strong> Ten tiles with no descriptions, a textured wallpaper, and half the screen given to a logo. This was the first thing every retail employee saw, every shift.</p>
                     </div>
                 </div>
             </div>
@@ -157,6 +158,23 @@
                     <p>Collaborated closely with the product owner to finalize the remaining 80% of business requirements while simultaneously designing and delivering against what was already defined.</p>
                 </div>
             </div>
+
+            <div class="cs-gallery fade-in-element">
+                <div class="cs-gallery-grid cs-gallery-grid-3 cs-gallery-uniform">
+                    <div class="cs-gallery-item">
+                        <img src="images/pos/roadmap-plan.png" alt="Project plan showing design tasks with percent complete, status, owner, health, and start and end dates">
+                        <p class="cs-gallery-caption"><strong>The roadmap</strong> — every design task with an owner, a status, and dates, built with the product owner to fit the timeline.</p>
+                    </div>
+                    <div class="cs-gallery-item">
+                        <img src="images/pos/sprint-plan-q1.png" alt="Q1 2025 planning board with four two-week sprints, stories grouped by epic and carrying point estimates">
+                        <p class="cs-gallery-caption"><strong>Sprint structure</strong> — Q1 broken into four two-week sprints, stories grouped by epic and pointed for capacity.</p>
+                    </div>
+                    <div class="cs-gallery-item">
+                        <img src="images/pos/jira-backlog.png" alt="Jira backlog for Sprint 5 2025 showing Point of Sale stories with one open ticket detailed">
+                        <p class="cs-gallery-caption"><strong>Handoff</strong> — each design landing as a written story in the engineering backlog, not a link to a Figma frame.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -200,6 +218,30 @@
                     </div>
                 </div>
             </div>
+
+            <div class="cs-carousel cs-carousel-tall fade-in-element" data-captions="[&quot;<strong>Information architecture</strong> \u2014 the whole system mapped first: every path from home through cart, checkout, and receipt, before a single screen was designed.&quot;, &quot;<strong>Wireframes</strong> \u2014 the sale paths in greybox, with open questions left visible in the file for engineering to weigh in on. Click to zoom.&quot;, &quot;<strong>High fidelity</strong> \u2014 the full checkout flows, credit and cash, including every modal, error, and confirmation state.&quot;]">
+                <div class="cs-carousel-viewport">
+                    <div class="cs-carousel-track">
+                        <div class="cs-carousel-slide active">
+                            <img src="images/pos/ia-diagram.png" alt="Information architecture diagram running from home through cart, checkout, and receipt">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/pos/wireframe-flow.png" alt="Wireframe flow covering the homepage, scan, manual entry, and quick sale paths">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/pos/hifi-checkout-flows.png" alt="High-fidelity checkout flows for credit and cash payment plus editing customer details">
+                        </div>
+                    </div>
+                    <button class="cs-carousel-btn cs-carousel-prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button>
+                    <button class="cs-carousel-btn cs-carousel-next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>
+                </div>
+                <div class="cs-carousel-caption-area">
+                    <p class="cs-carousel-caption"><strong>Information architecture</strong> — the whole system mapped first: every path from home through cart, checkout, and receipt, before a single screen was designed.</p>
+                </div>
+                <div class="cs-carousel-controls">
+                    <div class="cs-carousel-dots"></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -207,17 +249,15 @@
     <section class="cs-section">
         <div class="container">
             <h3 class="cs-section-heading fade-in-element">Designing with and beyond Celestial</h3>
-            <div class="cs-two-col fade-in-element">
-                <div class="cs-col-text">
+            <div class="cs-body-text fade-in-element">
                     <p class="cs-lead">Point of Sale needed to align with Comcast's Celestial Design System while standing on its own as an independent product.</p>
                     <p>My deep familiarity with Celestial — having spent months building and documenting its components — gave me a significant advantage. I knew which components could be used directly, which needed adaptation for POS-specific contexts, and where entirely new patterns were required. The goal wasn't just operational parity with XStore. Every workflow was an opportunity to vastly improve the experience — reducing clicks, simplifying navigation, and designing for the speed that retail transactions demand.</p>
                     <p>The result was a system that felt native to the Celestial ecosystem but was purpose-built for the unique constraints of in-store retail: quick interactions, minimal training time, and zero tolerance for friction at the register.</p>
-                </div>
-                <div class="cs-col-visual">
-                    <div class="cs-placeholder-image blue-bg">
-                        <span class="cs-placeholder-label">Celestial + POS component relationship</span>
-                    </div>
-                </div>
+            </div>
+
+            <div class="cs-image-captioned fade-in-element">
+                <img src="images/pos/spec-declare-tenders.png" alt="Declare tenders specification with numbered annotations describing the page header, denomination list table, footer, and quantity keypad">
+                <p class="cs-gallery-caption"><strong>Where a new pattern was needed.</strong> The denomination list is a hybrid — Celestial list items carrying table headers — because neither component alone did the job. Documented down to its active and inactive states so engineering never had to guess.</p>
             </div>
 
             <div class="cs-callout fade-in-element">
@@ -252,6 +292,27 @@
                         <li>Navigation patterns needed simplification for speed</li>
                         <li>Edge cases in account management workflows required additional states</li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="cs-carousel cs-carousel-tall fade-in-element" data-captions="[&quot;<strong>Industry analogs</strong> \u2014 we tore down how established POS products handle the cart, the product record, and fulfillment before defending any decision of our own.&quot;, &quot;<strong>Synthesis</strong> \u2014 findings sorted into suggestions, open considerations, committed changes, and questions still owed an answer. Not everything made the cut; some was deliberately deferred. Click to zoom.&quot;]">
+                <div class="cs-carousel-viewport">
+                    <div class="cs-carousel-track">
+                        <div class="cs-carousel-slide active">
+                            <img src="images/pos/analog-shopify.png" alt="Teardown of Shopify POS screens covering cart, product detail, customer record, and fulfillment">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/pos/research-synthesis.png" alt="Research synthesis board with columns for suggestions, things to consider, changes, and agent questions">
+                        </div>
+                    </div>
+                    <button class="cs-carousel-btn cs-carousel-prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button>
+                    <button class="cs-carousel-btn cs-carousel-next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>
+                </div>
+                <div class="cs-carousel-caption-area">
+                    <p class="cs-carousel-caption"><strong>Industry analogs</strong> — we tore down how established POS products handle the cart, the product record, and fulfillment before defending any decision of our own.</p>
+                </div>
+                <div class="cs-carousel-controls">
+                    <div class="cs-carousel-dots"></div>
                 </div>
             </div>
         </div>
@@ -289,9 +350,86 @@
                 </div>
             </div>
 
-            <div class="cs-image-full fade-in-element">
-                <div class="cs-placeholder-image dark-bg" style="height: 400px;">
-                    <span class="cs-placeholder-label">POS interface showcase</span>
+            <div class="cs-wipe-carousel fade-in-element" data-captions="[&quot;<strong>The main menu.</strong> Ten unlabeled tiles on a textured wallpaper become nine cards that each say what they do, with a search field for agents who already know where they're going.&quot;, &quot;<strong>The cart.</strong> XStore spent half the screen on static instructions. The replacement gives that space to the items themselves, with subtotal, discounts, and taxes visible without opening anything.&quot;, &quot;<strong>Cash payment.</strong> A modal stacked over a dimmed screen becomes its own page \u2014 nothing hidden behind the thing you are trying to read, and the total stays anchored in the footer.&quot;, &quot;<strong>The tender count.</strong> XStore left a blank panel next to the table and a banner telling you what to do. The rebuild puts each tender type there as a card, so the instruction is the interface.&quot;, &quot;<strong>Declaring cash.</strong> Counting a drawer meant tabbing through thirteen rows with a Next Group button. Now the list and the keypad sit side by side, with a running total that updates as you go.&quot;]">
+                <div class="cs-wipe-viewport">
+                    <div class="cs-wipe-slide active">
+                        <div class="cs-wipe">
+                            <div class="cs-wipe-bar">
+                                <span class="cs-wipe-label cs-wipe-label-before">XStore</span>
+                                <span class="cs-wipe-hint">Drag to compare</span>
+                                <span class="cs-wipe-label cs-wipe-label-after">Point of Sale</span>
+                            </div>
+                            <div class="cs-wipe-frame">
+                                <img class="cs-wipe-before" src="images/pos/compare/1-home-before.png" alt="XStore main menu with unlabeled icon tiles">
+                                <img class="cs-wipe-after" src="images/pos/compare/1-home-after.png" alt="Point of Sale home screen with labeled action cards">
+                            </div>
+                            <div class="cs-wipe-handle"><span class="cs-wipe-grip"></span></div>
+                        </div>
+                    </div>
+                    <div class="cs-wipe-slide">
+                        <div class="cs-wipe">
+                            <div class="cs-wipe-bar">
+                                <span class="cs-wipe-label cs-wipe-label-before">XStore</span>
+                                <span class="cs-wipe-hint">Drag to compare</span>
+                                <span class="cs-wipe-label cs-wipe-label-after">Point of Sale</span>
+                            </div>
+                            <div class="cs-wipe-frame">
+                                <img class="cs-wipe-before" src="images/pos/compare/2-cart-before.png" alt="XStore cart with a static instructions panel filling the left half">
+                                <img class="cs-wipe-after" src="images/pos/compare/2-cart-after.png" alt="Point of Sale cart listing items with a live order summary">
+                            </div>
+                            <div class="cs-wipe-handle"><span class="cs-wipe-grip"></span></div>
+                        </div>
+                    </div>
+                    <div class="cs-wipe-slide">
+                        <div class="cs-wipe">
+                            <div class="cs-wipe-bar">
+                                <span class="cs-wipe-label cs-wipe-label-before">XStore</span>
+                                <span class="cs-wipe-hint">Drag to compare</span>
+                                <span class="cs-wipe-label cs-wipe-label-after">Point of Sale</span>
+                            </div>
+                            <div class="cs-wipe-frame">
+                                <img class="cs-wipe-before" src="images/pos/compare/3-cash-before.png" alt="XStore tender entry as a red modal over a dimmed screen">
+                                <img class="cs-wipe-after" src="images/pos/compare/3-cash-after.png" alt="Point of Sale cash payment as a full page with a keypad">
+                            </div>
+                            <div class="cs-wipe-handle"><span class="cs-wipe-grip"></span></div>
+                        </div>
+                    </div>
+                    <div class="cs-wipe-slide">
+                        <div class="cs-wipe">
+                            <div class="cs-wipe-bar">
+                                <span class="cs-wipe-label cs-wipe-label-before">XStore</span>
+                                <span class="cs-wipe-hint">Drag to compare</span>
+                                <span class="cs-wipe-label cs-wipe-label-after">Point of Sale</span>
+                            </div>
+                            <div class="cs-wipe-frame">
+                                <img class="cs-wipe-before" src="images/pos/compare/4-tender-before.png" alt="XStore tender count with an empty white panel beside the totals table">
+                                <img class="cs-wipe-after" src="images/pos/compare/4-tender-after.png" alt="Point of Sale tender count with the table beside tender selection cards">
+                            </div>
+                            <div class="cs-wipe-handle"><span class="cs-wipe-grip"></span></div>
+                        </div>
+                    </div>
+                    <div class="cs-wipe-slide">
+                        <div class="cs-wipe">
+                            <div class="cs-wipe-bar">
+                                <span class="cs-wipe-label cs-wipe-label-before">XStore</span>
+                                <span class="cs-wipe-hint">Drag to compare</span>
+                                <span class="cs-wipe-label cs-wipe-label-after">Point of Sale</span>
+                            </div>
+                            <div class="cs-wipe-frame">
+                                <img class="cs-wipe-before" src="images/pos/compare/5-declare-before.png" alt="XStore denomination entry with a green keypad above a thirteen-row table">
+                                <img class="cs-wipe-after" src="images/pos/compare/5-declare-after.png" alt="Point of Sale declare cash with the denomination list beside a keypad">
+                            </div>
+                            <div class="cs-wipe-handle"><span class="cs-wipe-grip"></span></div>
+                        </div>
+                    </div>
+                    <button class="cs-wipe-btn cs-wipe-prev" aria-label="Previous comparison"><i data-lucide="chevron-left"></i></button>
+                    <button class="cs-wipe-btn cs-wipe-next" aria-label="Next comparison"><i data-lucide="chevron-right"></i></button>
+                </div>
+                <div class="cs-wipe-caption-area">
+                    <p class="cs-wipe-caption"><strong>The main menu.</strong> Ten unlabeled tiles on a textured wallpaper become nine cards that each say what they do, with a search field for agents who already know where they're going.</p>
+                </div>
+                <div class="cs-wipe-controls">
+                    <div class="cs-wipe-dots"></div>
                 </div>
             </div>
         </div>

@@ -41,8 +41,18 @@
                 <p class="cs-subtitle">Owning the end-to-end design of Comcast's next-generation employee-facing design system — building components, establishing process, and driving accessibility across web, iOS, and iPadOS.</p>
             </div>
             <div class="cs-hero-image fade-in-element">
-                <div class="cs-placeholder-image blue-bg">
-                    <span class="cs-placeholder-label">Hero Image</span>
+                <div class="cds-stage cds-stage-hero">
+                    <div class="cds-sky cds-sky-far"></div>
+                    <div class="cds-sky cds-sky-mid"></div>
+                    <div class="cds-sky cds-sky-near"></div>
+                    <span class="cds-twinkle" aria-hidden="true"></span>
+                    <span class="cds-twinkle" aria-hidden="true"></span>
+                    <span class="cds-twinkle" aria-hidden="true"></span>
+                    <span class="cds-twinkle" aria-hidden="true"></span>
+                    <div class="cds-logo">
+                        <img src="images/celestial/cds-logo.png" alt="Celestial Design System logo" class="cds-logo-img">
+                        <span class="cds-sweep" aria-hidden="true"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,8 +101,9 @@
                     <p>The design system had a foundation, but it needed someone to own it end-to-end and turn it into something teams could actually rely on.</p>
                 </div>
                 <div class="cs-col-visual">
-                    <div class="cs-placeholder-image blue-bg">
-                        <span class="cs-placeholder-label">Problem visualization</span>
+                    <div class="cs-image-captioned" style="margin-top: 0;">
+                        <img src="images/celestial/ecosystem-diagram.png" alt="Celestial Design System ecosystem diagram showing Foundations feeding Web, TV, and Mobile, which in turn serve xfinity.com, Flex, and the Xfinity app">
+                        <p class="cs-gallery-caption"><strong>One system, every surface.</strong> Foundations feed Web, TV, and Mobile, which in turn power xfinity.com, Flex, and the Xfinity app. This is the scope the system had to hold up under.</p>
                     </div>
                 </div>
             </div>
@@ -154,6 +165,23 @@
                     <p>Worked closely with the CDS team, Prism (engineering counterpart), the accessibility team, and multiple product Pods consuming the system — ensuring every component met real-world needs.</p>
                 </div>
             </div>
+
+            <div class="cs-gallery fade-in-element">
+                <div class="cs-gallery-grid cs-gallery-grid-3">
+                    <div class="cs-gallery-item">
+                        <img src="images/celestial/library-design.png" alt="Celestial UI Kit cover in Figma alongside popover component variants">
+                        <p class="cs-gallery-caption"><strong>Design</strong> — the Celestial UI Kit in Figma, where every component was built and versioned.</p>
+                    </div>
+                    <div class="cs-gallery-item">
+                        <img src="images/celestial/library-code.png" alt="Celestial UI Library in Storybook showing the component browser and controls panel">
+                        <p class="cs-gallery-caption"><strong>Code</strong> — the Storybook library Prism maintained, with live previews and variant controls.</p>
+                    </div>
+                    <div class="cs-gallery-item">
+                        <img src="images/celestial/library-documentation.png" alt="Celestial documentation showing layout grid specs, a breakpoint table, and inline error guidance">
+                        <p class="cs-gallery-caption"><strong>Documentation</strong> — specs, grids, and usage guidance across Figma, Storybook, and Confluence.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -189,6 +217,27 @@
                     </div>
                 </div>
             </div>
+
+            <div class="cs-carousel cs-carousel-tall fade-in-element" data-captions="[&quot;<strong>Competitive analysis</strong> \u2014 eleven iPad apps torn down for how each handles toolbar placement and bezel treatment, before we committed to a pattern of our own.&quot;, &quot;<strong>Pattern exploration</strong> \u2014 three page-header directions weighed with explicit pros and cons, benchmarked against both iOS and Material guidance. Click any image to zoom in.&quot;]">
+                <div class="cs-carousel-viewport">
+                    <div class="cs-carousel-track">
+                        <div class="cs-carousel-slide active">
+                            <img src="images/celestial/research-toolbar-analogs.png" alt="Competitive teardown of toolbar treatments across eleven iPad applications">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/celestial/research-mobile-exploration.png" alt="Mobile page header exploration with pros and cons, benchmarked against iOS and Material guidance">
+                        </div>
+                    </div>
+                    <button class="cs-carousel-btn cs-carousel-prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button>
+                    <button class="cs-carousel-btn cs-carousel-next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>
+                </div>
+                <div class="cs-carousel-caption-area">
+                    <p class="cs-carousel-caption"><strong>Competitive analysis</strong> — eleven iPad apps torn down for how each handles toolbar placement and bezel treatment, before we committed to a pattern of our own.</p>
+                </div>
+                <div class="cs-carousel-controls">
+                    <div class="cs-carousel-dots"></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -196,16 +245,36 @@
     <section class="cs-section">
         <div class="container">
             <h3 class="cs-section-heading fade-in-element">Designing for every surface</h3>
-            <div class="cs-two-col fade-in-element">
-                <div class="cs-col-text">
-                    <p class="cs-lead">Every component needed to work across four breakpoints and three platforms — and still feel like one cohesive system.</p>
-                    <p>Celestial supports web, iOS hybrid (Capacitor), and iPadOS hybrid (Capacitor). That meant every component I designed had to account for desktop, tablet horizontal, tablet vertical, and native mobile contexts — each with its own interaction patterns, touch targets, and layout constraints.</p>
-                    <p>This wasn't about simply making things responsive. Each breakpoint required intentional design decisions: how does a data table behave on a tablet held vertically versus horizontally? How do navigation patterns shift between web and native? The goal was consistency without rigidity — the system should feel unified, but each platform should feel native to its context.</p>
-                </div>
-                <div class="cs-col-visual">
-                    <div class="cs-placeholder-image blue-bg">
-                        <span class="cs-placeholder-label">Multi-platform component showcase</span>
+            <div class="cs-body-text fade-in-element">
+                <p class="cs-lead">Every component needed to work across four breakpoints and three platforms — and still feel like one cohesive system.</p>
+                <p>Celestial supports web, iOS hybrid (Capacitor), and iPadOS hybrid (Capacitor). That meant every component I designed had to account for desktop, tablet horizontal, tablet vertical, and native mobile contexts — each with its own interaction patterns, touch targets, and layout constraints.</p>
+                <p>This wasn't about simply making things responsive. Each breakpoint required intentional design decisions: how does a data table behave on a tablet held vertically versus horizontally? How do navigation patterns shift between web and native? The goal was consistency without rigidity — the system should feel unified, but each platform should feel native to its context.</p>
+            </div>
+
+            <div class="cs-carousel cs-carousel-tall fade-in-element" data-captions="[&quot;<strong>Four breakpoints, specified</strong> \u2014 margins and max widths defined at every step from 1280+ down to 376px, so the same component lands correctly on any surface.&quot;, &quot;<strong>Same component, different rules per platform</strong> \u2014 the toolbar sits on the left for web at md and above, but never as a bottom bar on web. Each platform gets the pattern that is native to it.&quot;, &quot;<strong>Native mobile patterns</strong> \u2014 tabs needed their own mobile behavior: a tab page, a list view, and a card view, each with the same action menu.&quot;, &quot;<strong>Running in production</strong> \u2014 the dismissible tab bar in the shipped Celestial app, desktop and mobile, after handoff to Prism.&quot;]">
+                <div class="cs-carousel-viewport">
+                    <div class="cs-carousel-track">
+                        <div class="cs-carousel-slide active">
+                            <img src="images/celestial/responsive-content-area.png" alt="Responsive content area specification showing margins and max widths at 1280+, 1080-1279, 810-1079, and 376-809 pixels">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/celestial/usage-toolbar-platforms.png" alt="Correct and incorrect toolbar placement shown across web, tablet, and mobile breakpoints">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/celestial/mobile-tab-flows.png" alt="Native mobile tab patterns: tab page, all-tabs list view, and all-tabs card view">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/celestial/tab-bar-in-product.png" alt="The dismissible tab bar running in the shipped Celestial app on desktop and mobile">
+                        </div>
                     </div>
+                    <button class="cs-carousel-btn cs-carousel-prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button>
+                    <button class="cs-carousel-btn cs-carousel-next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>
+                </div>
+                <div class="cs-carousel-caption-area">
+                    <p class="cs-carousel-caption"><strong>Four breakpoints, specified</strong> — margins and max widths defined at every step from 1280+ down to 376px, so the same component lands correctly on any surface.</p>
+                </div>
+                <div class="cs-carousel-controls">
+                    <div class="cs-carousel-dots"></div>
                 </div>
             </div>
         </div>
@@ -223,6 +292,11 @@
 
             <div class="cs-callout fade-in-element">
                 <p class="cs-callout-text">"Accessibility isn't a feature — it's a design constraint that makes everything better."</p>
+            </div>
+
+            <div class="cs-image-captioned fade-in-element">
+                <img src="images/celestial/status-indicators.png" alt="Status indicator and status icon matrix showing seven semantic tones across small, large, filled, outline, default, and inverse variants">
+                <p class="cs-gallery-caption"><strong>Never color alone.</strong> Every status carries an icon and a label as well as a color, so meaning survives for anyone who can't rely on hue. Inverse variants keep contrast intact on filled backgrounds.</p>
             </div>
 
             <div class="cs-two-col fade-in-element" style="margin-top: var(--spacing-element);">
@@ -290,6 +364,36 @@
                     <i data-lucide="scale" class="cs-card-icon"></i>
                     <h4>Sustainable scale</h4>
                     <p>The process was designed to outlast my engagement — giving the team a repeatable, documented workflow they could follow independently.</p>
+                </div>
+            </div>
+
+            <div class="cs-carousel cs-carousel-tall fade-in-element" data-captions="[&quot;<strong>1. Anatomy breakdown</strong> \u2014 every slot numbered and specified, with the behavior called out for each breakpoint.&quot;, &quot;<strong>2. Behavior specification</strong> \u2014 how the component positions itself and what it displaces, paired with a real in-app example.&quot;, &quot;<strong>3. Usage guidelines</strong> \u2014 correct and incorrect arrangements, with the reasoning written out rather than left implied.&quot;, &quot;<strong>4. Component properties</strong> \u2014 the instance panel a designer actually touches, documented so nobody has to reverse-engineer it.&quot;, &quot;<strong>5. Sticker sheet</strong> \u2014 every state, variant, and composition in one sheet, ready for designer consumption and Prism handoff.&quot;]">
+                <div class="cs-carousel-viewport">
+                    <div class="cs-carousel-track">
+                        <div class="cs-carousel-slide active">
+                            <img src="images/celestial/anatomy-toolbar.png" alt="Toolbar anatomy documentation with numbered callouts for each slot and breakpoint variants">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/celestial/behavior-system-banner.png" alt="System banner behavior specification with positioning rules and a real in-app example">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/celestial/usage-button-groups.png" alt="Mobile button group usage guidance showing correct and incorrect arrangements">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/celestial/figma-component-properties.png" alt="Figma instance properties panel for the CDS Banner component">
+                        </div>
+                        <div class="cs-carousel-slide">
+                            <img src="images/celestial/sticker-sheet-tabs.png" alt="Tab component sticker sheet showing every state, variant, and composition">
+                        </div>
+                    </div>
+                    <button class="cs-carousel-btn cs-carousel-prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button>
+                    <button class="cs-carousel-btn cs-carousel-next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>
+                </div>
+                <div class="cs-carousel-caption-area">
+                    <p class="cs-carousel-caption"><strong>1. Anatomy breakdown</strong> — every slot numbered and specified, with the behavior called out for each breakpoint.</p>
+                </div>
+                <div class="cs-carousel-controls">
+                    <div class="cs-carousel-dots"></div>
                 </div>
             </div>
         </div>

@@ -486,3 +486,68 @@ if (typeof lucide !== 'undefined') {
 
 // Log page load
 console.log('Portfolio site loaded successfully! 🎨');
+
+// Before/after wipe comparison carousel
+document.querySelectorAll('.cs-wipe-carousel').forEach(root => {
+    const slides = root.querySelectorAll('.cs-wipe-slide');
+    const dotsContainer = root.querySelector('.cs-wipe-dots');
+    const captionEl = root.querySelector('.cs-wipe-caption');
+    const prevBtn = root.querySelector('.cs-wipe-prev');
+    const nextBtn = root.querySelector('.cs-wipe-next');
+    let current = 0;
+
+    let captions = [];
+    if (root.dataset.captions) {
+        try { captions = JSON.parse(root.dataset.captions); } catch(e) {}
+    }
+
+    slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'cs-wipe-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to comparison ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index) {
+        slides[current].classList.remove('active');
+        dotsContainer.children[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        dotsContainer.children[current].classList.add('active');
+        if (captionEl && captions[current]) {
+            captionEl.innerHTML = captions[current];
+        }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(current === 0 ? slides.length - 1 : current - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(current === slides.length - 1 ? 0 : current + 1));
+
+    // Wipe interaction, per slide
+    root.querySelectorAll('.cs-wipe').forEach(wipe => {
+        let dragging = false;
+
+        const setFromEvent = (e) => {
+            const rect = wipe.getBoundingClientRect();
+            const pct = ((e.clientX - rect.left) / rect.width) * 100;
+            wipe.style.setProperty('--pos', Math.max(0, Math.min(100, pct)) + '%');
+            root.classList.add('is-touched');
+        };
+
+        wipe.addEventListener('pointerdown', (e) => {
+            dragging = true;
+            wipe.setPointerCapture(e.pointerId);
+            setFromEvent(e);
+        });
+
+        wipe.addEventListener('pointermove', (e) => {
+            // Mouse tracks on hover; touch and pen require an active drag.
+            if (dragging || e.pointerType === 'mouse') setFromEvent(e);
+        });
+
+        wipe.addEventListener('pointerup', (e) => {
+            dragging = false;
+            if (wipe.hasPointerCapture(e.pointerId)) wipe.releasePointerCapture(e.pointerId);
+        });
+    });
+});

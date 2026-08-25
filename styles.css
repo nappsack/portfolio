@@ -1345,3 +1345,232 @@ body {
 .hero-text.fade-in-element.visible:hover {
     transform: translateY(0) scale(1.02);
 }
+
+/* ==========================================================================
+   Celestial Design System — animated logo stage
+   Shared by the home-page work card and the case-study hero.
+   At rest: still. On hover: starfield drifts, stars twinkle, light sweeps
+   across the letterforms.
+   ========================================================================== */
+
+.cds-stage {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(120% 90% at 78% 16%, rgba(64, 88, 190, 0.38), rgba(0, 0, 0, 0) 60%),
+        radial-gradient(90% 70% at 16% 96%, rgba(196, 42, 64, 0.20), rgba(0, 0, 0, 0) 60%),
+        linear-gradient(160deg, #0d0c1c 0%, #08070f 55%, #0b0813 100%);
+}
+
+/* --- Drifting starfield: three parallax layers ------------------------- */
+
+.cds-sky {
+    position: absolute;
+    inset: 0;
+    animation: cds-drift linear infinite;
+    animation-play-state: paused;
+}
+
+/* far layer — smallest, dimmest, slowest */
+.cds-sky-far {
+    background-image:
+        radial-gradient(1px 1px at 24px 38px, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 118px 12px, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 62px 148px, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 205px 74px, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 268px 196px, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 156px 258px, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 292px 118px, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 88px 292px, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 232px 34px, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 14px 214px, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0));
+    background-size: 320px 320px;
+    animation-duration: 34s;
+}
+
+/* mid layer */
+.cds-sky-mid {
+    background-image:
+        radial-gradient(1.4px 1.4px at 46px 66px, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0)),
+        radial-gradient(1.4px 1.4px at 178px 28px, rgba(214, 226, 255, 0.70), rgba(255, 255, 255, 0)),
+        radial-gradient(1.4px 1.4px at 96px 186px, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0)),
+        radial-gradient(1.4px 1.4px at 224px 132px, rgba(255, 236, 226, 0.72), rgba(255, 255, 255, 0)),
+        radial-gradient(1.4px 1.4px at 12px 142px, rgba(255, 255, 255, 0.60), rgba(255, 255, 255, 0)),
+        radial-gradient(1.4px 1.4px at 142px 236px, rgba(214, 226, 255, 0.68), rgba(255, 255, 255, 0)),
+        radial-gradient(1.4px 1.4px at 248px 214px, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0));
+    background-size: 260px 260px;
+    animation-duration: 20s;
+}
+
+/* near layer — biggest, brightest, fastest */
+.cds-sky-near {
+    background-image:
+        radial-gradient(2px 2px at 58px 44px, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0)),
+        radial-gradient(2px 2px at 164px 118px, rgba(226, 236, 255, 0.85), rgba(255, 255, 255, 0)),
+        radial-gradient(2px 2px at 22px 158px, rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0)),
+        radial-gradient(2px 2px at 122px 182px, rgba(255, 232, 220, 0.88), rgba(255, 255, 255, 0));
+    background-size: 200px 200px;
+    animation-duration: 11s;
+}
+
+@keyframes cds-drift {
+    from { background-position: 0 0; }
+    to   { background-position: -320px 0; }
+}
+
+.cds-stage:hover .cds-sky,
+.cds-hover .cds-sky {
+    animation-play-state: running;
+}
+
+/* --- Twinkles: a handful of stars that pulse on hover ------------------ */
+
+.cds-twinkle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.75);
+}
+
+.cds-twinkle:nth-of-type(1) { left: 13%; top: 21%; }
+.cds-twinkle:nth-of-type(2) { left: 83%; top: 29%; }
+.cds-twinkle:nth-of-type(3) { left: 28%; top: 79%; }
+.cds-twinkle:nth-of-type(4) { left: 71%; top: 84%; }
+
+.cds-stage:hover .cds-twinkle,
+.cds-hover .cds-twinkle {
+    animation: cds-twinkle 2.6s ease-in-out infinite;
+}
+
+.cds-stage:hover .cds-twinkle:nth-of-type(2),
+.cds-hover .cds-twinkle:nth-of-type(2) { animation-delay: 0.55s; }
+.cds-stage:hover .cds-twinkle:nth-of-type(3),
+.cds-hover .cds-twinkle:nth-of-type(3) { animation-delay: 1.2s; }
+.cds-stage:hover .cds-twinkle:nth-of-type(4),
+.cds-hover .cds-twinkle:nth-of-type(4) { animation-delay: 1.8s; }
+
+@keyframes cds-twinkle {
+    0%, 100% { opacity: 0;    transform: scale(0.6); }
+    12%      { opacity: 1;    transform: scale(1); }
+    28%      { opacity: 0.15; transform: scale(0.8); }
+    40%      { opacity: 0.9;  transform: scale(1); }
+    62%      { opacity: 0;    transform: scale(0.6); }
+}
+
+/* --- Logo + light sweep ------------------------------------------------ */
+
+.cds-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 62%;
+    max-width: 380px;
+}
+
+/* Shadow stack, innermost first: a tight dark contact shadow seals the
+   letter edges, a wider dark halo sits outside it, and only then does the
+   blue glow begin — so the glow never bleeds into the letterforms.
+   Chained drop-shadows each spread from the previous one's silhouette. */
+.cds-logo-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter:
+        drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))
+        drop-shadow(0 0 6px rgba(6, 6, 18, 0.95))
+        drop-shadow(0 0 0 rgba(120, 150, 255, 0));
+    transition: filter 600ms ease;
+}
+
+.cds-stage:hover .cds-logo-img,
+.cds-hover .cds-logo-img {
+    filter:
+        drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))
+        drop-shadow(0 0 6px rgba(6, 6, 18, 0.95))
+        drop-shadow(0 0 30px rgba(120, 150, 255, 0.50));
+}
+
+/* The sweep is masked to the logo's own shape, so the highlight only
+   travels across the letterforms. */
+.cds-sweep {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background-image: linear-gradient(
+        108deg,
+        rgba(255, 255, 255, 0) 46%,
+        rgba(255, 255, 255, 0.55) 50%,
+        rgba(255, 255, 255, 0) 54%
+    );
+    background-size: 260% 100%;
+    background-repeat: no-repeat;
+    background-position: 130% 0;
+    -webkit-mask-image: url('images/celestial/cds-logo.png');
+    mask-image: url('images/celestial/cds-logo.png');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+.cds-stage:hover .cds-sweep,
+.cds-hover .cds-sweep {
+    animation: cds-sweep 1150ms cubic-bezier(0.25, 0.6, 0.3, 1) 100ms both;
+}
+
+@keyframes cds-sweep {
+    0%   { opacity: 0; background-position: 130% 0; }
+    14%  { opacity: 1; }
+    86%  { opacity: 1; }
+    100% { opacity: 0; background-position: -30% 0; }
+}
+
+/* --- Case-study hero variant ------------------------------------------ */
+
+.cds-stage-hero {
+    width: 100%;
+    height: 480px;
+    border-radius: var(--border-radius);
+    transition: var(--transition-smooth);
+}
+
+.cds-stage-hero:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.cds-stage-hero .cds-logo {
+    width: 54%;
+    max-width: 520px;
+}
+
+@media (max-width: 768px) {
+    .cds-stage-hero { height: 250px; }
+    .cds-stage-hero .cds-logo { width: 64%; }
+}
+
+/* --- Reduced motion: keep the glow, drop the movement ------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+    .cds-sky,
+    .cds-stage:hover .cds-sky,
+    .cds-hover .cds-sky {
+        animation: none;
+    }
+
+    .cds-stage:hover .cds-twinkle,
+    .cds-hover .cds-twinkle {
+        animation: none;
+        opacity: 0.85;
+    }
+
+    .cds-stage:hover .cds-sweep,
+    .cds-hover .cds-sweep {
+        animation: none;
+    }
+}

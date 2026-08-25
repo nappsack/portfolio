@@ -406,6 +406,16 @@
     transform: translateY(-2px);
 }
 
+/* Opt-in: force a common image box so captions in a row start at the same
+   height even when the source images have different aspect ratios.
+   Contained, not cropped — these are documents, not photography. */
+.cs-gallery-uniform .cs-gallery-item img {
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
+    object-position: top center;
+    background: white;
+}
+
 .cs-gallery-caption {
     font-size: 0.875rem;
     color: var(--text-light);
@@ -585,6 +595,13 @@
 
 .cs-carousel-compact .cs-carousel-caption-area {
     min-height: 2.5rem;
+}
+
+/* Taller viewport for near-square and portrait artifacts (spec sheets,
+   research boards). At 520px these scale to fit height and leave most of
+   the container width empty. */
+.cs-carousel-tall .cs-carousel-viewport {
+    height: 780px;
 }
 
 .cs-carousel-viewport {
@@ -1047,6 +1064,10 @@
         height: 250px;
     }
 
+    .cs-carousel-tall .cs-carousel-viewport {
+        height: 420px;
+    }
+
     .cs-carousel-viewport {
         height: 300px;
     }
@@ -1058,4 +1079,280 @@
     .cs-carousel-slide {
         padding: 1rem;
     }
+}
+
+/* ==========================================================================
+   Before/after wipe comparison carousel
+   Each slide stacks two same-size images; a draggable divider clips the
+   "after" layer so moving it reveals one or the other. Mouse follows on
+   hover; touch requires a drag.
+   ========================================================================== */
+
+.cs-wipe-carousel {
+    margin-top: var(--spacing-element);
+}
+
+.cs-wipe-viewport {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: var(--bg-light);
+}
+
+.cs-wipe-slide {
+    display: none;
+}
+
+.cs-wipe-slide.active {
+    display: block;
+}
+
+/* --- The comparison itself --------------------------------------------- */
+
+.cs-wipe {
+    --pos: 50%;
+    position: relative;
+    overflow: hidden;
+    cursor: ew-resize;
+    background: white;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* A strip above the images holds the side labels, so neither one ever
+   covers the screenshots — their content runs edge to edge. */
+.cs-wipe-bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0.875rem;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cs-wipe-frame {
+    position: relative;
+}
+
+.cs-wipe img {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+/* The "before" layer sets the box height; "after" is clipped over it. */
+.cs-wipe-after {
+    position: absolute;
+    inset: 0;
+    -webkit-clip-path: inset(0 0 0 var(--pos));
+    clip-path: inset(0 0 0 var(--pos));
+}
+
+/* --- Divider + grip ---------------------------------------------------- */
+
+.cs-wipe-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--pos);
+    width: 2px;
+    margin-left: -1px;
+    background: white;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
+    pointer-events: none;
+}
+
+.cs-wipe-grip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    color: var(--text-dark);
+}
+
+/* Two chevrons drawn with borders — no icon dependency. */
+.cs-wipe-grip::before,
+.cs-wipe-grip::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+}
+
+.cs-wipe-grip::before {
+    transform: rotate(-135deg);
+}
+
+.cs-wipe-grip::after {
+    transform: rotate(45deg);
+}
+
+/* --- Side labels ------------------------------------------------------- */
+
+.cs-wipe-label {
+    padding: 0.25rem 0.65rem;
+    border-radius: 100px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: white;
+}
+
+.cs-wipe-label-before {
+    background: rgba(31, 31, 41, 0.82);
+}
+
+.cs-wipe-label-after {
+    background: var(--primary-red);
+}
+
+/* --- Carousel chrome (matches .cs-carousel) ---------------------------- */
+
+.cs-wipe-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    color: var(--text-dark);
+    opacity: 0;
+}
+
+.cs-wipe-viewport:hover .cs-wipe-btn,
+.cs-wipe-btn:focus-visible {
+    opacity: 1;
+}
+
+.cs-wipe-btn:hover {
+    background: var(--text-dark);
+    color: white;
+}
+
+.cs-wipe-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.cs-wipe-prev { left: 0.75rem; }
+.cs-wipe-next { right: 0.75rem; }
+
+.cs-wipe-caption-area {
+    min-height: 3.5rem;
+    margin-top: 0.75rem;
+}
+
+.cs-wipe-caption {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.cs-wipe-caption strong {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.cs-wipe-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cs-wipe-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cs-wipe-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.15);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.cs-wipe-dot.active {
+    background: var(--primary-red);
+    transform: scale(1.25);
+}
+
+.cs-wipe-dot:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.cs-wipe-dot.active:hover {
+    background: var(--primary-red);
+}
+
+/* --- Hint, shown until first interaction ------------------------------- */
+
+.cs-wipe-hint {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-light);
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.cs-wipe-carousel.is-touched .cs-wipe-hint {
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .cs-wipe-label {
+        font-size: 0.5625rem;
+        padding: 0.15rem 0.45rem;
+        letter-spacing: 0.02em;
+    }
+
+    .cs-wipe-bar {
+        padding: 0.4rem 0.5rem;
+    }
+
+    /* No hover on touch, so the hint is the only affordance — but the bar
+       is tight; drop it and let the labels carry it. */
+    .cs-wipe-hint {
+        display: none;
+    }
+
+    .cs-wipe-grip {
+        width: 32px;
+        height: 32px;
+    }
+
+    .cs-wipe-btn { opacity: 1; }
 }
