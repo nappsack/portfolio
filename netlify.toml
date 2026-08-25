@@ -1,4 +1,7 @@
 [functions]
+  # Stated explicitly rather than relying on the default, so this doesn't
+  # depend on whatever the site's UI settings say.
+  directory = "netlify/functions"
   node_bundler = "esbuild"
   # The chat function reads the knowledge base off disk at runtime.
   included_files = ["kb-public.md"]
