@@ -1123,7 +1123,7 @@ Individual pieces of work, with what he did and what changed as a result.
 - **Skills:** information architecture, OOUX, systems thinking
 
 ### Scaled the team 2→6 and built the operating system — 2025 → 2026
-- **What:** Onboarded up to 6 designers (a designer on his team, a colleague, another designer on the team, Josh, Sohee, Carly) with docs + process; built the **WIP → Delivery pipeline**, review cadence, ticket sizing/tagging framework, and weekly sync structure. Mentors on component-first thinking.
+- **What:** Onboarded up to 6 designers with docs + process; built the **WIP → Delivery pipeline**, review cadence, ticket sizing/tagging framework, and weekly sync structure. Mentors on component-first thinking.
 - **Impact:** New designers productive within their first sprint; team "operates like a machine" with less dependence on Chris. Delivered 230+ features via systems, not heroics.
 - **Role:** led
 - **Skills:** people management, mentorship, design ops, delegation

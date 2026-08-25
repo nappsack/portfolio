@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "chrisnappi.com — static portfolio site plus the /api/chat function",
+  "description": "chrisnappi.com \u2014 static portfolio site plus the /api/chat function",
   "scripts": {
     "kb": "python3 ~/.thinkos/scripts/kb_public.py",
-    "dev": "netlify dev"
+    "dev": "node scripts/dev-server.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.120.0",

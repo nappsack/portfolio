@@ -10,15 +10,15 @@
     var MAX_TURNS = 12;
 
     var SUGGESTIONS = [
-        "What kind of work does he do?",
-        "Tell me about his design systems experience",
-        "Has he led a team?",
-        "How does he use AI in his work?"
+        "What kind of work do you do?",
+        "Tell me about your design systems experience",
+        "Have you led a team?",
+        "How do you use AI in your work?"
     ];
 
     var GREETING =
-        "Hi — ask me anything about Chris's experience, the work in his " +
-        "portfolio, or how he approaches design problems.";
+        "Hey! Ask me anything about my experience, the work in my portfolio, " +
+        "or how I approach design problems.";
 
     /** Conversation as sent to the API. The greeting is UI only. */
     var history = [];
@@ -64,9 +64,9 @@
         header.className = 'chat-header';
         var titleWrap = document.createElement('div');
         var h2 = document.createElement('h2');
-        h2.textContent = 'Ask about Chris';
+        h2.textContent = 'Ask me anything';
         var sub = document.createElement('p');
-        sub.textContent = 'Answers come from his real work history';
+        sub.textContent = 'An AI version of Chris, trained on his real work';
         titleWrap.appendChild(h2);
         titleWrap.appendChild(sub);
 
@@ -113,7 +113,7 @@
 
         var foot = document.createElement('p');
         foot.className = 'chat-footnote';
-        foot.textContent = 'AI assistant — it can miss things. For anything important, email Chris.';
+        foot.textContent = 'This is an AI, so it can get things wrong. For anything important, email me.';
 
         panel.appendChild(header);
         panel.appendChild(log);
@@ -222,7 +222,7 @@
         if (history.length >= MAX_TURNS) {
             var w = bubble('error');
             w.textContent = "This chat has run long. Refresh the page to start " +
-                "a new one, or email Chris at chrisnappi88@gmail.com.";
+                "a new one, or just email me at chrisnappi88@gmail.com.";
             return;
         }
 
@@ -310,8 +310,8 @@
             }
             return pump();
         }).catch(function () {
-            fail("I couldn't reach the server. Check your connection, or email " +
-                 "Chris at chrisnappi88@gmail.com.");
+            fail("I couldn't reach the server. Check your connection, or just " +
+                 "email me at chrisnappi88@gmail.com.");
         });
     }
 
