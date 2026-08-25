@@ -6,7 +6,8 @@
   "description": "chrisnappi.com \u2014 static portfolio site plus the /api/chat function",
   "scripts": {
     "kb": "python3 ~/.thinkos/scripts/kb_public.py",
-    "dev": "node scripts/dev-server.mjs"
+    "dev": "node scripts/dev-server.mjs",
+    "logs": "node scripts/read-logs.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.120.0",

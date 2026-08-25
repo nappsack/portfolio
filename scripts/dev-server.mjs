@@ -18,7 +18,7 @@ import { join, extname, normalize } from "node:path";
 import { Readable } from "node:stream";
 
 const ROOT = new URL("..", import.meta.url).pathname;
-const PORT = 8888;
+const PORT = Number(process.env.PORT ?? 8888);
 
 // --- .env -----------------------------------------------------------------
 

@@ -1,9 +1,12 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { getStore } from "@netlify/blobs";
 import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { join } from "node:path";
 
-const MODEL = "claude-opus-5";
+// Override with the CHAT_MODEL environment variable to switch models without
+// a code change. Netlify: Site configuration → Environment variables.
+const MODEL = process.env.CHAT_MODEL ?? "claude-opus-5";
 const MAX_TOKENS = 1000;
 
 // Abuse limits. This endpoint is public, so every one of these matters.
@@ -127,6 +130,42 @@ async function checkRate(ip) {
   }
 }
 
+/**
+ * Record every question so there's a record if anything is ever disputed, and
+ * so Chris can see what people actually ask.
+ *
+ * Two places, on purpose. The console line shows up immediately in Netlify's
+ * function log with no setup. The blob is durable history that outlives the
+ * log window; read it with `npm run logs`.
+ *
+ * IPs are hashed. That still groups an attacker's requests together, which is
+ * what abuse review needs, without keeping a file of visitors' raw addresses.
+ */
+function ipHash(ip) {
+  return createHash("sha256")
+    .update(ip + (process.env.LOG_SALT ?? "chrisnappi"))
+    .digest("hex")
+    .slice(0, 10);
+}
+
+async function record(entry) {
+  try {
+    console.log("CHAT " + JSON.stringify(entry));
+  } catch {
+    // Logging must never take the chat down.
+  }
+  try {
+    const store = getStore("chat-log");
+    const day = entry.t.slice(0, 10);
+    const prior = (await store.get(day, { type: "json" })) ?? [];
+    prior.push(entry);
+    // Cap a day's file so one bad night can't grow it without limit.
+    await store.setJSON(day, prior.slice(-500));
+  } catch {
+    // Same. The console line above is the fallback.
+  }
+}
+
 const json = (body, status) =>
   new Response(JSON.stringify(body), {
     status,
@@ -161,8 +200,18 @@ export default async (req) => {
     return json({ error: "Bad request" }, 400);
   }
 
-  const rate = await checkRate(ipOf(req));
+  const ip = ipOf(req);
+  const t0 = Date.now();
+
+  const rate = await checkRate(ip);
   if (!rate.ok) {
+    await record({
+      t: new Date().toISOString(),
+      ip: ipHash(ip),
+      q: clean.at(-1).content.slice(0, 300),
+      blocked: "rate-limit",
+      model: MODEL,
+    });
     return json(
       {
         error: `You've hit the question limit for now. Try again in about ${rate.mins} minutes, or just email me at chrisnappi88@gmail.com.`,
@@ -200,11 +249,13 @@ export default async (req) => {
           messages: clean,
         });
 
+        let answer = "";
         for await (const event of run) {
           if (
             event.type === "content_block_delta" &&
             event.delta.type === "text_delta"
           ) {
+            answer += event.delta.text;
             send({ text: event.delta.text });
           }
         }
@@ -216,8 +267,33 @@ export default async (req) => {
           });
         }
         send({ done: true });
+
+        const u = final.usage ?? {};
+        await record({
+          t: new Date().toISOString(),
+          ip: ipHash(ip),
+          turn: clean.length,
+          q: clean.at(-1).content.slice(0, 300),
+          a: answer.slice(0, 300),
+          stop: final.stop_reason,
+          // All four matter for cost. input_tokens EXCLUDES cached ones, so
+          // logging it alone undercounts a 17k-token system prompt as ~19.
+          tok_in: u.input_tokens,
+          tok_out: u.output_tokens,
+          tok_cache_read: u.cache_read_input_tokens,
+          tok_cache_write: u.cache_creation_input_tokens,
+          ms: Date.now() - t0,
+          model: MODEL,
+        });
       } catch (err) {
         console.error("chat error:", err);
+        await record({
+          t: new Date().toISOString(),
+          ip: ipHash(ip),
+          q: clean.at(-1).content.slice(0, 300),
+          error: String(err?.message ?? err).slice(0, 200),
+          model: MODEL,
+        });
         const msg =
           err instanceof Anthropic.RateLimitError
             ? "Things are busy right now. Give it a moment and try again."
