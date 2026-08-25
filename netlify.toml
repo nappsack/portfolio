@@ -12,41 +12,49 @@
   from = "/netlify/*"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/package.json"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/package-lock.json"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/scripts/*"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/CHAT.md"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/README.md"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/COPY.md"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/DEPLOYMENT_GUIDE.md"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/*"
