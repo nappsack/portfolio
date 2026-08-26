@@ -10,6 +10,7 @@ Accelerator
 Accessibility
 Accessible
 Accomplishments
+Accountability
 Across
 Acted
 ActiveCore
@@ -41,6 +42,7 @@ Authored
 Avoided
 BFA
 Back
+Backed
 Background
 Balancing
 Bar
@@ -50,6 +52,7 @@ Beyond
 Body
 Book
 Booking
+Bookings
 Boulevard
 Branches
 Branching
@@ -84,6 +87,7 @@ Center
 Challenge
 Challenges
 Changed
+Choosing
 Chris's
 Claude
 Claude-enablement
@@ -91,10 +95,12 @@ ClickUp
 Client
 Client-Facing
 Client-facing
+Closed
 Closes
 Closing
 Cloud
 Cloudflare
+Co-led
 Code
 Collaborated
 Collaboration
@@ -111,8 +117,10 @@ Complexity
 Component
 Components
 Conducted
+Confirmed
 Confluence
 Consolidated
+Consulting
 Contact
 Contains
 Content
@@ -137,6 +145,7 @@ Deliverables
 Delivered
 Delivering
 Delivery
+Demeanor
 Description
 Design
 Design-dev
@@ -232,6 +241,8 @@ Handed
 Handoff
 He's
 Heading
+Held
+Her
 Hero
 High-Impact
 His
@@ -255,6 +266,7 @@ Included
 Inconsistent
 Incorporated
 Increased
+Independent
 Individual
 Initial
 Inquirer
@@ -330,6 +342,7 @@ Millennium
 Mobile
 Model
 Murphy-Morrow
+Named
 Nappi's
 Native
 Navigate
@@ -344,6 +357,7 @@ Objectives
 Oct
 Onboarded
 Onboarding
+Online
 Opened
 Operationalized
 Opportunities
@@ -389,6 +403,7 @@ Process
 Processes
 Produced
 Product
+Product's
 Product-specific
 Products
 Professional
@@ -400,6 +415,7 @@ Prototype
 Prove
 Provided
 Published
+Purchasing
 QA
 Quality
 Quick
@@ -407,16 +423,20 @@ Quicksite
 RRT
 Raised
 Ran
+Rated
 Rather
 React
 Rebuilt
+Received
 Recognition
+Recognized
 Redesign
 Redesigned
 Redesigning
 Reduced
 Reference
 Reflections
+Reframed
 Register
 Released
 Relevant
@@ -427,6 +447,7 @@ Reset
 Resisted
 Resources
 Restoring
+Retracted
 Revenue
 Reviewer
 Reviews
@@ -455,6 +476,7 @@ Separately
 Sept
 Service
 Set
+Several
 Shared
 Shifted
 Shipped
@@ -516,8 +538,10 @@ Talkers
 Teaches
 Team
 Teams
+Teamwork
 Tech
 Terms
+Thank
 Thankfully
 These
 Think
@@ -549,6 +573,7 @@ UX
 UX-driven
 United
 University
+Unsolicited
 Upon
 Usable
 Usage
