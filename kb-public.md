@@ -4,7 +4,7 @@ This document is the complete and only source of truth for answering questions
 about Chris Nappi's background, experience, and work. Everything below is
 public and cleared for external sharing.
 
-Last generated: 2026-08-25
+Last generated: 2026-08-26
 
 ---
 
@@ -1033,6 +1033,12 @@ XM360 was a demanding yet rewarding project that tested my ability to drive mean
 Individual pieces of work, with what he did and what changed as a result.
 
 
+### Shipped an AI assistant on chrisnappi.com that answers recruiter questions in his own voice — August 2026
+- **What:** Designed and shipped a chat assistant on his portfolio site that answers visitor questions about his experience, speaking as him. Built the publishing pipeline behind it rather than hand-writing content: a generator that reads the career vault and emits a public knowledge base, gated on this ledger's own `Sensitivity: public` tags (18 of 33 entries qualify; 15 withheld), with case studies pulled only from files already published on the live site. Colleague and client names are replaced with role descriptions before publication, and the build aborts on client financials, personal contact details, or any unrecognized name. Tuned the voice against [[Voice Profile]], including its flagged em-dash tell, and calibrated humor to arrive occasionally rather than in every answer. Before trusting it in public, ran an eight-vector abuse suite against both the local and production builds — prompt injection, forged conversation history faking the assistant's own prior turns, task laundering, system-prompt extraction, harassment generation, cost amplification, and bulk exfiltration of the knowledge base. All eight refused. Switched models mid-build from Opus to Sonnet after A/B testing both on identical questions and confirming no loss of accuracy or voice.
+- **Impact:** A recruiter can interrogate eight years of work conversationally instead of parsing a PDF, and the answers stay grounded in a curated record rather than a model's recall. The [[Runpod Application]] note identifies AI fluency as *"exactly the dimension the résumé struggles to prove on paper"* — this is that proof as a working artifact rather than a bullet. A public LLM endpoint runs on his own API key and account standing, so it was treated as an attack surface before launch rather than after: worst case under a determined attack is the chat going offline, not an unbounded bill. Running cost is ~$0.12 for a visitor's first question and ~$0.015 for follow-ups, under a monthly spend cap.
+- **Role:** led — directed scope, made every product call, and caught a wrong diagnosis during review. Implementation was Claude Code, which is the point: the artifact is itself evidence of the workflow.
+- **Skills:** AI application development, prompt engineering, LLM cost modeling, data sanitization, adversarial testing, serverless deployment
+
 ### Reset the Meevo design system's color token naming to usage-based semantics — August 2026
 - **What:** Meevo's design system engineer flagged that the existing color token names would not survive dark mode — the naming was tied to values rather than to how the colors are used, so an inverted scale would make every name a lie. Researched how semantic token naming has cycled across the industry (usage-based → value-based → back to usage-based as dark mode became standard), then duplicated the Figma global library, renamed every color variable to the usage-based convention, took Meevo's design system engineer's review, and published to the **main global library**.
 - **Impact:** The rename is a precondition for dark mode shipping at all. An inverted dark scale under value-based names produces tokens whose names contradict their values, which is the failure mode that makes a design system stop being trusted. Doing it before the dark mode implementation meant a variable rename in Figma rather than a coordinated rename across Figma, Prism and every consuming deliverable.
@@ -1102,7 +1108,7 @@ Individual pieces of work, with what he did and what changed as a result.
 - **Impact:** The engagement's flagship workstream and lead priority for Meevo Live (Sept 2026). Redesign targets learnability for 16–22 y/o front-desk staff on tablets.
 - **Role:** led
 - **Skills:** UI design, complex-flow design, responsive/tablet-first
-- **Recognition:** "far and away the best designer at Think… like watching a master at work." — Brittany Murphy-Morrow, 2025 YE
+- **Recognition:** "far and away the best designer at Think… like watching a master at work." — my manager, 2025 YE
 
 ### Built the Meevo Knowledge Base MCP — 2026
 - **What:** Built a custom SQLite-backed MCP server giving AI structured access to the project's institutional memory: **950+ KB articles, 597 meetings, 362 decisions, 230+ features, 114 people** — with BM25 full-text search + recency boost. *(This is the `meevo-kb` server powering this ledger.)*
