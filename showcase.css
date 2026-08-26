@@ -263,13 +263,19 @@
     clip-path: inset(0 50% 0 0);
 }
 
+/* The two screenshots were exported at different aspect ratios (legacy
+   1.709, redesign 1.417). Contain shows the legacy screen whole —
+   including the dated chrome, which is part of the point — instead of
+   cropping 17% off its sides to fill the frame. */
 .compare-before img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    background: white;
 }
 
 .compare-after img {
