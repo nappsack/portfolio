@@ -253,10 +253,14 @@
     pointer-events: none;
 }
 
+/* The reveal is a clip, not a resize. The layer stays the full size of the
+   slider so the image underneath never moves or rescales as the handle
+   travels — only how much of it is visible changes. */
 .compare-before {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    -webkit-clip-path: inset(0 50% 0 0);
+    clip-path: inset(0 50% 0 0);
 }
 
 .compare-before img {

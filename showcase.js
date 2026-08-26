@@ -66,12 +66,13 @@
             const rect = slider.getBoundingClientRect();
             let pct = ((x - rect.left) / rect.width) * 100;
             pct = Math.max(2, Math.min(98, pct));
-            beforeWrap.style.width = pct + '%';
+            // Clip rather than resize, so neither image shifts as it moves.
+            beforeWrap.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
             handle.style.left = pct + '%';
         }
 
         // Start centred
-        beforeWrap.style.width = '50%';
+        beforeWrap.style.clipPath = 'inset(0 50% 0 0)';
         handle.style.left = '50%';
 
         slider.addEventListener('pointerdown', (e) => {
