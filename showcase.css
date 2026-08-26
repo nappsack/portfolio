@@ -240,6 +240,8 @@
     overflow: hidden;
     border-radius: var(--border-radius);
     cursor: col-resize;
+    /* Horizontal drag belongs to the slider; vertical still scrolls the page. */
+    touch-action: pan-y;
     user-select: none;
     -webkit-user-select: none;
     box-shadow: 0 4px 24px rgba(0,0,0,0.1);

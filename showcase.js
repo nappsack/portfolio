@@ -53,11 +53,14 @@
         });
     });
 
-    /* ---- Before / After Compare Slider ---- */
+    /* ---- Before / After Compare Slider ----
+       Mouse follows on hover, no click needed; touch and pen drag. The
+       divider stays wherever it was left. Matches the Point of Sale
+       comparison in case-study.css / script.js. */
     document.querySelectorAll('.compare-slider').forEach(slider => {
         const beforeWrap = slider.querySelector('.compare-before');
         const handle = slider.querySelector('.compare-handle');
-        let isDragging = false;
+        let dragging = false;
 
         function setPosition(x) {
             const rect = slider.getBoundingClientRect();
@@ -67,37 +70,23 @@
             handle.style.left = pct + '%';
         }
 
-        // Set initial position
-        setPosition(slider.getBoundingClientRect().left + slider.offsetWidth * 0.5);
+        // Start centred
+        beforeWrap.style.width = '50%';
+        handle.style.left = '50%';
 
-        slider.addEventListener('mousedown', (e) => {
-            isDragging = true;
+        slider.addEventListener('pointerdown', (e) => {
+            dragging = true;
+            slider.setPointerCapture(e.pointerId);
             setPosition(e.clientX);
         });
 
-        document.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            setPosition(e.clientX);
+        slider.addEventListener('pointermove', (e) => {
+            if (dragging || e.pointerType === 'mouse') setPosition(e.clientX);
         });
 
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-
-        // Touch support
-        slider.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            setPosition(e.touches[0].clientX);
-        }, { passive: true });
-
-        document.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            setPosition(e.touches[0].clientX);
-        }, { passive: true });
-
-        document.addEventListener('touchend', () => {
-            isDragging = false;
+        slider.addEventListener('pointerup', (e) => {
+            dragging = false;
+            if (slider.hasPointerCapture(e.pointerId)) slider.releasePointerCapture(e.pointerId);
         });
     });
 
