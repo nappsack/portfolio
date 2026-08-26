@@ -1183,6 +1183,11 @@ Individual pieces of work, with what he did and what changed as a result.
 - **Role:** led
 - **Skills:** data-informed design, prioritization
 
+### Communication growth (2024 flag → 2025 Meets) — 2024→2025
+- **What:** Communication went from reviewer **Needs Improvement (2, 2024)** to **Meets (3, 2025)**; Chris now monitors his own communication quality, adjusts under pressure, and calibrates via check-ins with manager/account-leads/DLs.
+- **Impact:** Documented year-over-year growth on a formally flagged area.
+- **Role:** n/a (recognition)
+
 ### Think org citizenship — 2025 → 2026
 - **What:** AI Council member, Think Week committee, quarterly-event MC/host; adjunct professor at Drexel (see [[Professional Background]]).
 - **Impact:** Cross-org contribution and culture-building. "I absolutely love the MC role you've been playing at the quarterlies." — reviewer, 2025 YE

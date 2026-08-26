@@ -109,6 +109,7 @@ Color
 Comcast
 Comcast's
 Commenting
+Communication
 Company
 Company's
 Competitors
@@ -138,6 +139,7 @@ Cross-org
 Current
 Custom
 DL
+DLs
 Dashboard
 Defined
 Deliver
@@ -261,6 +263,7 @@ Implementation
 Implemented
 Important
 Improved
+Improvement
 Include
 Included
 Inconsistent
@@ -326,6 +329,7 @@ Marketing
 Marmot
 Material
 Mature
+Meets
 Meevo
 Meevo's
 Mentored
@@ -347,6 +351,7 @@ Nappi's
 Native
 Navigate
 Navigation
+Needs
 Newell
 Newell's
 Notion
