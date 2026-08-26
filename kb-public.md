@@ -131,9 +131,17 @@ Each of the following is a published case study from his portfolio.
 - **Timeframe:** March 2024 – October 2024
 - **Company:** Comcast
 - **Team:** 1 design lead, 3 designers, accessibility team, engineers
-- **My Role:** Principal Experience Designer
+- **My Role:** Principal Experience Designer (contributor)
 - **Tools:** Figma, Jira, Confluence, Storybook, Airtable
-- **Key deliverables:** Component creation, pattern documentation, accessibility improvements, process refinement
+- **Key deliverables:** Component design and documentation, iconography governance, cross-system usage rules
+
+---
+
+## Attribution — read this first
+
+I did not lead Celestial. I joined well after the system had been established and worked as a contributor: updates, enhancements, new component documentation, and the iconography governance described below.
+
+The accessibility figure that appears throughout this case study, compliance moving from roughly 15% on legacy components to 95% on new and updated work, **is the team's outcome, not mine.** I contributed to it. Anyone summarizing this case study should say "contributed to a team effort that moved compliance from 15% to 95%," never "raised compliance to 95%."
 
 ---
 
@@ -149,19 +157,21 @@ As a hybrid system, Celestial supports multiple platforms:
 
 The design system encompasses foundations, components, and patterns that serve as the backbone for products across the Celestial ecosystem — including the Xfinity App, Flex, TV, Web/Mobile Native, and all Celestial Spaces.
 
-Think Company was brought in to staff the CDS team. I owned the design system end-to-end — creating and documenting new components, refining existing ones, improving processes, and collaborating across departments to ensure accessibility and scalability.
+Think Company was brought in to staff the CDS team. I contributed components and documentation, authored the governance covering how icons move between Celestial and the Xfinity Design System, and collaborated across departments on accessibility and scalability.
 
 ---
 
 ## Problem
 
-When I joined, the Celestial product was approximately 20% complete. While the design system had been established, it faced significant challenges:
+When I joined, the Celestial product was approximately 20% complete, and the components that already existed sat at roughly 15% accessibility compliance. The system faced several challenges:
 
 - A vast backlog of components and patterns still needed to be designed and documented
 - The system lacked the scalability and alignment needed across multiple product teams
 - There was no structured process for component creation, review, and handoff
-- Accessibility compliance was severely lacking — legacy components sat at roughly 15% compliance
+- Icons were inherited from a separate design system with no documented rules governing the relationship
 - Collaboration between design, accessibility, and engineering teams needed to be streamlined
+
+The system had a foundation. What it needed was volume: components designed, documented, and made compliant fast enough for the product teams already waiting on them.
 
 ---
 
@@ -174,48 +184,86 @@ Each component and pattern was designed to work across four breakpoints:
 - Tablet vertical
 - Native mobile
 
-The work spanned both the web UI and native app experiences. Our process was broken into three key phases.
+The work spanned both the web UI and native app experiences. The team's process ran in three phases.
 
 ### Phase 1: Exploration and Ideation
 
-- Conducted research with designers across Celestial product teams to understand needs and pain points
-- Performed competitive analysis to identify industry-standard patterns and best practices
-- Collaborated with accessibility and engineering teams early to establish feasibility and compliance requirements
-- Established the foundation for scalable, reusable components that could serve the entire product ecosystem
+- Research with designers across Celestial product teams to understand needs and pain points
+- Competitive analysis to identify industry-standard patterns and best practices
+- Early collaboration with accessibility and engineering to establish feasibility and compliance requirements
+- Foundations laid for scalable, reusable components serving the entire product ecosystem
 
 ### Phase 2: Design
 
-- Created components iteratively, incorporating feedback from cross-functional partners at each stage
-- Maintained regular collaboration with the CDS team, Prism (the engineering counterpart), and the accessibility team
-- Conducted cross-functional validation to ensure components met the needs of all consuming product teams
-- Focused on improving consistency, usability, and accessibility with every iteration
+- Components created iteratively, incorporating feedback from cross-functional partners at each stage
+- Regular collaboration with the CDS team, Prism (the engineering counterpart), and the accessibility team
+- Cross-functional validation to ensure components met the needs of all consuming product teams
 
 ### Phase 3: Delivery and Implementation
 
-- Produced comprehensive documentation for every component, including:
+- Comprehensive documentation for every component, including:
   - Anatomy breakdowns
   - Behavior specifications
   - Usage guidelines
   - Accessibility requirements
   - Sticker sheets for designer consumption
-- Conducted post-sprint reviews with other Pods to gather feedback and ensure adoption readiness
-- Handed off completed components to Prism for integration into the shared UI kit
-- Streamlined the design-to-development handoff process, reducing ambiguity and rework
+- Post-sprint reviews with other Pods to gather feedback and ensure adoption readiness
+- Completed components handed off to Prism for integration into the shared UI kit
+
+---
+
+## Governing Icons Across Two Design Systems
+
+This is the work on Celestial that was most specifically mine.
+
+CDS did not own its icons. Celestial is built on the **Xfinity Design System (XDS)**, but the two serve different audiences: XDS powers consumer-facing marketing and shop experiences, while CDS powers the internal tools Comcast employees use all day. Icons came into CDS from the XDS iconography file by way of Comcast's **Global Access Project (GAP)** tool, which meant every new icon request crossed an organizational boundary between two teams with different priorities.
+
+I wrote the documentation that governed it, defining two distinct workflows:
+
+- **For product designers requesting an icon:** design it, take it through CDS approval, add it to the Icon Backlog frame in the UI kit.
+- **For CDS designers submitting upward into XDS:** route through the Comcast enterprise Slack channel where the XDS team reviewed incoming requests.
+
+The most important part was the guidance on restraint: **when creating a new icon is appropriate at all.** Only after exhausting the existing XDS library, and only with a definitive use case and a demonstrated design necessity. Without a rule like that, every team invents its own icon for the same concept and the shared library stops being shared.
+
+I wrote the same kind of boundary documentation at the component level. The CDS **Button Group** documentation spells out where Celestial deliberately diverges from XDS on arrangement, alignment, and button order — with more explicit use cases and restrictions than the XDS equivalent, because an employee-facing system has to survive more edge cases than a marketing one.
+
+---
+
+## Accessibility
+
+The team treated accessibility as a first-class design constraint rather than an afterthought. Components were designed in collaboration with the accessibility team from day one, not reviewed by them after the fact. Requirements for keyboard navigation, screen reader support, color contrast, focus management, and touch targets were settled before any visual design began.
+
+By the end of the engagement, new and updated components had reached 95% compliance across the program, up from roughly 15% on legacy components. **That figure is the team's.**
+
+What I would point to in my own work is narrower and more durable: every component I documented carried its accessibility specification alongside its anatomy and behavior, so the requirement travelled with the component instead of living in someone's review notes.
 
 ---
 
 ## Outcomes
 
-- Raised accessibility compliance from **15% (legacy) to 95%** across all new and updated components
-- Standardized the component creation and documentation process, establishing a repeatable workflow adopted by the full CDS team
-- Strengthened design-development collaboration through structured handoffs, shared reviews, and ongoing Prism partnership
-- Facilitated seamless adoption of new components by various product Pods across the Celestial ecosystem
+**Program outcomes**
+
+- The team moved accessibility compliance from roughly 15% on legacy components to 95% across new and updated work
+- Accessibility entered at the exploration phase rather than at review
+- Documentation standards came to include keyboard, screen reader, and focus management specs
+
+**My contribution**
+
+- Designed and documented components across 4 breakpoints and 3 platforms
+- Authored the iconography governance spanning CDS and XDS, including the criteria for justifying a new icon
+- Wrote component documentation codifying where CDS deliberately diverges from XDS
+- Delivered the Paths UI Kit
+- Delivered components to Prism for integration into the shared UI kit
 
 ---
 
 ## Reflections
 
-Celestial was an ambitious, highly collaborative effort that required balancing the needs of multiple stakeholder groups while maintaining rigorous accessibility and design standards. The work reinforced my expertise in design systems at scale, accessibility-first design, cross-functional process optimization, and building the kind of structured workflows that allow a design system to grow sustainably. It remains one of the most impactful systems-level projects in my career.
+Celestial reinforced something I believe deeply: the best design system work is invisible. When it's working, teams don't think about the system — they just build with it. Getting there requires rigorous documentation, relentless accessibility standards, and a willingness to design the process as carefully as the components.
+
+The accessibility work was the most meaningful part of it. I contributed to that effort rather than led it, but watching a program travel from 15% to 95% taught me the thing I've carried into every system since: compliance is cheap when it's a design constraint and expensive when it's an audit finding. The order of operations is the whole game.
+
+This project also set the stage for everything that came after. My knowledge of Celestial's architecture, components, and patterns became a major asset on the Point of Sale project, where I was specifically brought in because of that fluency. The systems thinking I sharpened here carried directly into the work I'd go on to lead at Meevo.
 
 <!-- source: case studies/comcast-business/comcast-business.md -->
 # Comcast Business
@@ -1192,3 +1240,93 @@ Individual pieces of work, with what he did and what changed as a result.
 - **What:** AI Council member, Think Week committee, quarterly-event MC/host; adjunct professor at Drexel (see [[Professional Background]]).
 - **Impact:** Cross-org contribution and culture-building. "I absolutely love the MC role you've been playing at the quarterlies." — reviewer, 2025 YE
 - **Role:** contributed
+
+### Co-led the Figma migration that moved both Comcast and Think off Sketch — 2020 → January 2021
+- **What:** Was the **first person at Think Company to seriously experiment with Figma**, in 2020. When component variants and auto-layout landed in Summer 2020, judged the tool finally viable at scale and convinced Comcast Business Product UX leadership to take the risk on a **3-month pilot** (green-lit November 2020) with one other designer. Migrated every design asset while simultaneously learning the tool, built a proof-of-concept, and pitched formal adoption in **January 2021**. Then drove rollout: a formal process, a comprehensive onboarding guide (teams, project structure by design phase, file structure, branching and merge review, content handoff), 1:1 trainings, and a weekly open working session called **Figma Fridays** where anyone could bring questions.
+- **Impact:** **Consolidated four design tools into one.** Adoption spread from Comcast Business Product UX to the other Comcast Business teams and eventually to the Xfinity residential teams roughly a year behind. **Trained hundreds of designers and stakeholders** across those first years. The same playbook was then sold as a service — see the blog-post entry below — and reused at Newell, Merck, and the Inquirer. This is the earliest instance of the pattern his role criteria calls his distinguishing strength: taking an emerging technology and turning it into working team practice.
+- **Role:** co-led
+- **Skills:** design tooling strategy, change management, enablement/training, documentation, early technology adoption
+
+### Drove Comcast Business's design system from an agency style guide to a governed federated model — 2019 → 2021
+- **What:** Inherited a design system in shambles — grown out of an outside agency's **marketing** style guide that had never accounted for product environments, while three separate products were each being designed independently with no shared standards. Rebuilt the UI kit, processes, and governance from scratch. Chose a **federated model** because Comcast Business splits into three design verticals (Marketing, Product UX, Sales), and started with Product UX. Each product **elected a design-system ambassador** who attended **weekly governance meetings** as that product's sole interface to the system. Structured the kit in three tiers — **Foundations** (grid/spacing, type, color, buttons, iconography), **Shared Patterns** (form fields, controls, navigation, modals), and **product-specific pattern libraries** — and published all of it through a **Zeroheight storefront** carrying usage rules, states, behaviors, and direct asset downloads. Governance ran on an explicit decision flow: does the component exist, do changes or additions need to happen, does it fulfill requirements, then how is it introduced.
+- **Impact:** Replaced a broken style guide with a governed system serving multiple product teams and a single published source of truth. Comcast eventually hired a senior designer specifically to own the CB design system, and Chris brought him fully up to speed on everything he had built before rolling off — so the system outlived the engagement with a named internal owner.
+- **Role:** led
+- **Skills:** design systems architecture, federated governance models, design system documentation, Zeroheight, knowledge transfer
+
+### Wrote the blog post that became a new Think service line and landed Newell Brands — 2021
+- **What:** Published a post on Think Company's website on transitioning Comcast Business's product design team from Sketch to Figma — *"How We Transitioned a Fortune 100 Company's Product Design Team to Figma and Lived to Talk About It."* Newell Brands read it and reached out to Think directly.
+- **Impact:** The post **spawned an entirely new service offering at Think** — transitioning client design teams to Figma — and generated **inbound business** that became the Newell engagement, which Chris then ran. That engagement was his first design-lead-level body of work. A piece of written thought leadership that turned into a repeatable revenue line and a career step in the same move.
+- **Role:** led
+- **Skills:** thought leadership, technical writing, business development, design operations
+
+### Made engineer-grade network configuration usable by non-IT business owners on ActiveCore — 2019 → 2021
+- **What:** ActiveCore is Comcast Business's enterprise **SD-WAN** platform for monitoring and managing software-defined networks. The design problem: expose genuinely complex, engineer-grade configuration to business owners who are not certified IT specialists, across every breakpoint including native iOS and Android, and scale from small networks to large ones. Beyond dozens of incremental features, designed three large research-heavy ones: **Custom Site Groups** (a new dual-bucket select/remove pattern letting users build custom groupings of sites and devices for filtered analytics), **Top Talkers Analytics** (one of the most-requested features — charts with complex filtering to toggle between top users and top applications so owners could see what was consuming their data), and **Custom JLL Thresholds** (the largest and most painstaking — a Mad-Libs-style guided side panel letting users set performance thresholds **per device** rather than only at network level). Also owned the separate native mobile experience, deliberately scoped to monitoring and troubleshooting rather than configuration.
+- **Impact:** Pushed ActiveCore past MVP into a usable enterprise product across web, responsive, and native mobile. The Top Talkers work gave business owners a direct line to cutting cost and data waste; the per-device thresholds replaced a blunt network-level ceiling with meaningful per-device tracking.
+- **Role:** led
+- **Skills:** enterprise/complex UX, data-heavy dashboard design, interaction and pattern design, responsive and native mobile design
+
+### Ran Newell Brands' Sketch→Figma migration across a 300+ brand white-label system — January → June 2022
+- **What:** A 3-month Think engagement for a global consumer-goods company running **300+ eCommerce brands** (Marmot, Yankee Candle, Elmer's Glue), sourced inbound from Chris's blog post. The SOW had three pillars: training and file-structure process for Figma; design and deliver two features to trial the new process; restructure the **white-label design system** across dozens of brands into an efficient Figma asset model. Opened with weeks of interviews, discovery, and process-mapping before touching the migration. Ran **daily 2-hour workshops over two weeks** for the core design team covering frames, auto layout, and components, and produced **8 instructional videos** for ongoing reference. Trained the dev team on handoff once designers were proficient. Seeded the migration by importing foundational components (colors, type, grid, buttons, icons) and had Newell's own designers build the rest — reinforcing the training while establishing the file structure. Then co-designed and delivered the **product catalog page** (simplified tile emphasizing the thumbnail, new horizontal filter pattern) and **product detail page** (emphasized imagery, new zoom behavior, simplified inputs, richer below-the-fold content) across two 2-week sprints.
+- **Impact:** Newell's design team fully transitioned to Figma and reached intermediate-to-expert proficiency — able to maintain and evolve the system independently. The white-label model let hundreds of brands share and customize one component foundation consistently. The tech lead surfaced a Storybook plugin rendering live Figma files inside Storybook, materially tightening design-to-code alignment. The two page redesigns validated the whole workflow in a real shippable context. Closed with a recommendations document as a design-ops roadmap. This was the engagement that proved the new Think service line was real.
+- **Role:** led
+- **Skills:** multi-brand/white-label design systems, design tooling migration, workshop facilitation, instructional video production, client enablement
+
+### Built The Philadelphia Inquirer's first design system — 2022 → 2023
+- **What:** A ~200-year-old news organization mid-transformation from print to digital-first had no cohesive design system at all. Built the company's first, using a **federated model** and **atomic structure**: a three-tier stack of foundations library → component library → templated pattern library, split across web and native mobile. Partnered closely with engineering to integrate **Storybook and Tailwind CSS** so the system was tied to the code rather than living beside it. Instituted weekly design-system governance alongside planning and cross-departmental syncs. Wrote the training and documentation so designers could actually work inside it. Roughly a 6-month build.
+- **Impact:** Standardized UI components across the product, cut repetitive design work, and gave design-to-development handoff a shared vocabulary for the first time. Broke long-standing silos between UX, branding, and marketing in the process.
+- **Role:** led
+- **Skills:** design systems architecture, atomic design, federated governance, Storybook, Tailwind CSS, design-to-code integration
+
+### Stood up a UX practice and grew four non-UX designers into practitioners — July 2022 → April 2023
+- **What:** Joined as Product Design Lead over a design org of ~7–8 — four mid-level designers (mostly graphic-design and marketing backgrounds with minimal UX experience), two researchers, and a UX design manager. Found designers **building new features from screenshots of the live site**, with no defined process and assets fragmented mid-migration. Built an end-to-end UX process covering research and discovery, user flows, wireframes, visual design, and delivery documentation, then defined the framework, file structure, and workflows to run it. Led the Sketch→Figma migration and **rebuilt the Figma organization from the ground up** to match the new process. Trained every designer in both Figma and industry practice, and ran regular 1:1s and career guidance as a standing mentorship program.
+- **Impact:** Converted a team with no UX background into confident practitioners working inside a real process, with a single source of truth replacing screenshot-driven design. Chris names the mentorship as his **proudest accomplishment** of the role, recurring across every résumé draft since.
+- **Role:** led
+- **Skills:** team leadership, mentorship, UX education, design ops, design tooling migration
+
+### Built a CTA scoring model that let advertising weigh user experience against revenue — 2023
+- **What:** The Inquirer's ad-heavy revenue model produced intrusive CTAs and dark patterns that disrupted reading, and there was **no framework at all** for evaluating how severe any given interruption was — so product and advertising had no shared basis for the argument. Partnered with the research and advertising teams to audit **every CTA and interruption across the product**, then created a **scoring mechanism** quantifying the disruption of different ad types, and prototyped the experiences to demonstrate what each score actually felt like.
+- **Impact:** Gave the advertising team a way to factor user experience into revenue strategy — the first real product↔advertising alignment at the company. Turned a recurring, unwinnable qualitative argument into a measurable one, in an organization where ad revenue could always overrule UX.
+- **Role:** led
+- **Skills:** UX auditing, evaluation frameworks, quantitative scoring models, cross-functional negotiation, dark-pattern remediation
+
+### Migrated Merck's Vivid360 design system into Figma for its first product build — 2023
+- **What:** Joined Merck's Payor Portal (officially the Merck Formulary Resources Portal) about six months into design. Merck's **Vivid360** design system was ~85% complete but lived entirely in **Sketch Cloud**, since Sketch was still Merck's primary tool. Chris proposed moving the project to Figma and **won stakeholder approval to migrate an in-flight pharma project** mid-build. He then migrated the entire Vivid360 system into Figma alone, rebuilding each component to properly use auto layout and component variants — and **trained the design lead and the other designer on Figma** as part of it, since nobody else on the team could do the migration. Architected both the project structure (Figma dashboard projects separating design phases so files move cleanly from exploration to delivery) and the file structure — a **"base pages"** model where the main screens became components, with instances placed into the prototype file, the legal-review file, and the delivery file, keeping one source of truth across all of them.
+- **Impact:** Payor was the **first Merck product built on Vivid360**, so this created the Figma-native component library and file architecture the rest of the Merck ecosystem could build on. Replaced a fragile, tool-fragmented process with a repeatable phase-based workflow. As the most senior designer, Chris then owned adherence — redesigning all existing pages to align to the latest Vivid360 release.
+- **Role:** led
+- **Skills:** design system migration, Figma architecture (auto layout, variants, component-instance models), stakeholder persuasion, design ops
+
+### Designed the Payor Portal's core flows under weekly FDA legal review — 2023 → March 2024
+- **What:** After the migration, **major product feature work for most of his time on the project**, alongside another designer and a content strategist. Owned entire sections: **Library & Requests**, the portal's backbone, letting healthcare professionals bookmark, access, and request confidential drug resources with all branded content legally isolated per brand; and the **Dashboard**, the first post-login screen, curated over many months of working sessions, testing, and legal review to surface library, upcoming appointments, active requests, and contacts at a glance. The constraint set was severe: safety and indication information required **anywhere** branded content makes a claim about what a drug does, branded content strictly separated from scientific and pipeline content, and everything ultimately reviewable by the FDA. Ran the gauntlet of **weekly RRT (rapid response team) legal reviews**, which frequently forced full-scale redesigns of entire pages to reach compliance. Also facilitated an **OOUX workshop** to reconcile the content strategist's spreadsheet-based content model with the Figma designs, producing a shared visual mapping of content as objects with behaviors, metadata, attributes, CTAs, and nested objects — because the two disciplines had been unable to read each other's work. Built a developer-handoff package carried over from Comcast Business and improved: table of contents, resources, design-team profile cards, comprehensive annotations, and a global components section.
+- **Impact:** Delivered a secure, FDA-compliant, genuinely usable portal, replacing a process where a payor wanting drug information had to contact a rep, schedule a presentation, and receive the content by follow-up email. The OOUX workshop gave a heavily content-driven team a shared object model that unblocked design–content collaboration for the rest of the engagement.
+- **Role:** led
+- **Skills:** regulated/compliance-heavy design (FDA, pharma legal review), OOUX facilitation, content modeling, complex flow design, developer handoff
+
+### Built xm360's first UI kit and source of truth with a forward path to Celestial — 2023 → March 2024
+- **What:** xm360 (Xfinity Mobile 360) is the tool Xfinity retail employees use to activate and manage Xfinity Mobile accounts — **the only revenue-generating legacy product in Comcast's Frontline suite**, and correspondingly high-stakes. Its design assets were outdated with no structured UI documentation and no centralized source of truth. Built the product's first real **UI kit** standardizing components, and a **centralized Figma source of truth** to kill redundancy and misalignment across a team that had been working in silos. Because the product was slated to eventually sunset into the Celestial Design System, coordinated directly with the Celestial team to structure assets for forward compatibility, and established a documented **transition plan** for the eventual migration.
+- **Impact:** Standardized components across the team, measurably reduced UI inconsistency on a revenue-critical product used by retail employees, and left a defined migration path so the work would survive the move to Celestial rather than being thrown away.
+- **Role:** led
+- **Skills:** design systems, UI kit creation, forward-compatible asset architecture, Figma
+
+### Authored the cross-org iconography governance spanning two Comcast design systems — 2024
+- **What:** Wrote the Celestial Design System's iconography documentation, covering a genuinely cross-organizational process. CDS icons are sourced from the **Xfinity Design System (XDS)** iconography file via Comcast's **Global Access Project (GAP)** tool. Chris defined **two distinct workflows**: one for product designers (design the icon → CDS approval → add to the "Icon Backlog" frame in the UI kit), and one for CDS designers submitting upward into XDS (via the Comcast enterprise Slack `#xd-gap` channel, reviewed by named XDS contacts). He also wrote the guidance on **when it is and is not appropriate to create a new icon at all** — only after exhausting the XDS library, and only with a definitive use case and demonstrated design necessity. Separately authored the overview and usage documentation for the CDS **Button Group** component, explicitly documenting where CDS deliberately diverges from XDS on arrangement, alignment, and button order, with more explicit use cases and restrictions than the XDS equivalent.
+- **Impact:** Governance built specifically to prevent library sprawl — the failure mode where every team invents its own icon and the system stops being a system. Operating at the CDS/XDS boundary meant coordinating across the consumer-facing design system, the employee-facing one, the Prism engineering team that builds both, and the accessibility team. This is Chris's strongest individually-attributable contribution on Celestial.
+- **Role:** led
+- **Skills:** design system governance, cross-library alignment, technical documentation, iconography systems
+
+### Contributed components, documentation, and accessibility practice to Comcast's next-gen design system — March → October 2024
+- **What:** Celestial (CDS) is Comcast's next-generation employee-facing design system, built to unify and replace the legacy "360" frontline suite across the Xfinity App, Flex, TV, Web/Mobile Native, and all Celestial Spaces. Chris joined as a Principal Experience Designer **after the system was established** and worked on updates, enhancements, and new component documentation. Every component he touched had to work across **four breakpoints** (desktop, tablet horizontal, tablet vertical, native mobile) and **three platforms** (web, iOS hybrid via Capacitor, iPadOS hybrid via Capacitor). Documentation per component covered anatomy, behavior specifications, usage guidelines, accessibility requirements, and sticker sheets. Work was done with the accessibility team pulled in from the exploration phase rather than auditing after the fact, and handed off to **Prism** for integration into the shared UI kit, with post-sprint reviews run with the consuming product Pods. Separately delivered the **Paths UI Kit**, called out in his mid-year review as a standout initiative delivered fast in a politically complex situation.
+- **Impact:** The program moved accessibility compliance from ~15% on legacy components to **95%** on new and updated work — **a team outcome Chris contributed to**. Correct phrasing: *"I contributed to a team effort that moved compliance from 15% to 95%."* Never *"I raised compliance to 95%."* The durable personal outcome is the CDS fluency itself: it is the specific reason he was pulled onto CPOS a few months later, where it made an aggressive timeline achievable.
+- **Role:** contributed
+- **Skills:** accessibility-first design (keyboard navigation, screen reader support, contrast, focus management, touch targets), multi-platform component design, design system documentation
+
+### Stepped into a leadership vacuum on CPOS and won the Design Lead role — October 2024 → January 2025
+- **What:** Brought onto Comcast's Cloud Point of Sale project as a Principal UX Designer specifically because of his Celestial fluency, since the new POS had to align to CDS. **Two weeks in, the Comcast design manager gave notice and left**, creating a leadership vacuum on a project that was already behind. Rather than wait for a replacement, Chris wrote to the Comcast client engagement manager arguing that a Thinker should backfill the role — citing his legacy knowledge of Celestial and e360/r360, his existing stakeholder relationships, and the fact that he was already co-owning CPOS. He had been exploring a move into a Design Lead role for roughly a year. He aligned with Frontline UX leadership, formalized the position, and immediately imposed structure where there was none: sprint-based cadences, planning, reviews, and structured handoffs.
+- **Impact:** **Directly earned his promotion to Design Lead at Think Company in January 2025** — the title he still holds and the foundation of the Meevo engagement that follows it in this ledger. Also a strong outcome for Think: a Thinker filling a client-side leadership role. Chris's own framing of the lesson: leadership doesn't wait for a title — when the manager left, the project didn't pause.
+- **Role:** led
+- **Skills:** design leadership under pressure, self-advocacy, stakeholder management, design ops from scratch
+
+### Delivered Comcast's in-house POS from 20% requirements, ahead of schedule — October 2024 → 2025
+- **What:** For years Comcast's retail stores ran on **XStore**, a slow, buggy, developer-designed Oracle POS costing millions annually, where simple transactions became multi-screen ordeals. With the **Oracle contract renewal looming in November 2025**, Comcast needed an in-house replacement design-ready by **end of Q1 2025** — and started with **business requirements only ~20% complete**. Chris partnered with the other designer to build the entire POS from scratch: information architecture, user flows, wireframes, and high-fidelity visual design, using CDS components where they fit while keeping CPOS a standalone product outside the Celestial Space. Collaborated with the product owner to finalize the missing 80% of requirements *while* designing against what existed. Brought on a UX researcher for in-depth interviews with both Celestial designers and in-store agents, and benchmarked POS industry analogs. **Research findings:** core transaction flows tested faster than the XStore baseline; navigation patterns needed simplification for retail speed; account-management edge cases needed additional states. Delivered in accelerated two-week sprints with continuous engineering alignment.
+- **Impact:** Delivered a fully designed POS that met operational parity with XStore and substantially improved on its usability, speed, and visual consistency — **finished ahead of schedule** despite the 20% starting point. Kept Comcast on track to **eliminate its Oracle dependency, saving millions annually in licensing**, and de-risked a hard contract deadline. Established a repeatable sprint-based process for high-stakes compressed timelines.
+- **Role:** led
+- **Skills:** end-to-end product design, information architecture, research integration, delivery under aggressive constraints, enterprise retail UX

@@ -47,7 +47,7 @@ All website copy is managed here. Edit this file and have Claude sync changes to
 - **Link:** case-study-pos.html
 
 ### Card 3 (Blue) — Celestial Design System
-- **Title:** From 15% to 95% Accessibility Compliance: Building Comcast's Next-Generation Design System
+- **Title:** Accessibility as a Design Constraint, Not an Audit: Contributing to Comcast's Next-Generation Design System
 - **Tags:** Design Systems, Accessibility, Cross-Platform Design
 - **Link:** case-study-celestial.html
 
