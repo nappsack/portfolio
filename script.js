@@ -4,6 +4,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         
         const targetId = this.getAttribute('href');
+        // The footer "See my process here" link is href="#", which makes
+        // querySelector('#') throw. Bare "#" is a placeholder, not a target.
+        if (!targetId || targetId === '#') return;
         const targetElement = document.querySelector(targetId);
         
         if (targetElement) {
@@ -213,70 +216,119 @@ document.querySelectorAll('.accordion-header').forEach(button => {
     });
 });
 
-// Process modal
-const processModalOverlay = document.getElementById('process-modal');
-const openProcessModal = document.getElementById('open-process-modal');
-const closeProcessModal = document.getElementById('close-process-modal');
+/* ==========================================================================
+   Modals (process + email)
+   ========================================================================== */
 
-if (openProcessModal && processModalOverlay) {
-    openProcessModal.addEventListener('click', (e) => {
-        e.preventDefault();
-        processModalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
+/* body{overflow:hidden} does not reliably stop scrolling on iOS and throws
+   away the scroll position. Pinning the body and restoring scrollY on release
+   is what actually holds. */
+let modalLockedY = 0;
 
-    closeProcessModal.addEventListener('click', () => {
-        processModalOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    });
+const ORIGINAL_SCROLL_RESTORATION = (() => {
+    try { return history.scrollRestoration || 'auto'; } catch (err) { return null; }
+})();
 
-    processModalOverlay.addEventListener('click', (e) => {
-        if (e.target === processModalOverlay) {
-            processModalOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
+function lockPageScroll() {
+    modalLockedY = window.scrollY || window.pageYOffset || 0;
+    // Closing pops our dummy history entry, and the browser's automatic scroll
+    // restoration for that entry lands after ours and wins. Disable it while
+    // the overlay is up, then hand it back.
+    try { history.scrollRestoration = 'manual'; } catch (err) {}
+    document.body.style.top = (-modalLockedY) + 'px';
+    document.body.classList.add('modal-open');
+}
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && processModalOverlay.classList.contains('active')) {
-            processModalOverlay.classList.remove('active');
-            document.body.style.overflow = '';
+function jumpTo(y) {
+    // scroll-behavior:smooth is set globally; animating the restore looks
+    // like the page moving by itself after the modal closes.
+    const root = document.documentElement;
+    const prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y);
+    root.style.scrollBehavior = prev;
+}
+
+function unlockPageScroll() {
+    document.body.classList.remove('modal-open');
+    document.body.style.top = '';
+    jumpTo(modalLockedY);
+    const y = modalLockedY;
+    requestAnimationFrame(() => {
+        jumpTo(y);
+        requestAnimationFrame(() => jumpTo(y));
+        if (ORIGINAL_SCROLL_RESTORATION) {
+            try { history.scrollRestoration = ORIGINAL_SCROLL_RESTORATION; } catch (err) {}
         }
     });
 }
 
-// Email modal
-const emailModalOverlay = document.getElementById('email-modal');
-const openEmailModal = document.getElementById('open-email-modal');
-const closeEmailModal = document.getElementById('close-email-modal');
+/**
+ * Wire an overlay + trigger + close button into a modal that behaves the way
+ * one should on a phone: page locked behind it, Escape closes it, tapping the
+ * backdrop closes it, and the system Back gesture closes it instead of
+ * navigating away from the site.
+ */
+function wireModal(overlay, trigger, closeBtn) {
+    if (!overlay || !trigger) return;
+
+    let pushed = false;
+
+    function open(e) {
+        if (e) e.preventDefault();
+        overlay.classList.add('active');
+        lockPageScroll();
+        const scroller = overlay.querySelector('.process-modal-body') || overlay.firstElementChild;
+        if (scroller) scroller.scrollTop = 0;
+        try {
+            history.pushState({ modal: overlay.id }, '');
+            pushed = true;
+        } catch (err) { pushed = false; }
+        if (closeBtn) closeBtn.focus({ preventScroll: true });
+    }
+
+    function close(fromPopstate) {
+        if (!overlay.classList.contains('active')) return;
+        overlay.classList.remove('active');
+        unlockPageScroll();
+        if (pushed && !fromPopstate) {
+            pushed = false;
+            try { history.back(); } catch (err) {}
+        } else {
+            pushed = false;
+        }
+        // preventScroll: otherwise this animates the page away from the
+        // position unlockPageScroll just restored.
+        trigger.focus({ preventScroll: true });
+    }
+
+    trigger.addEventListener('click', open);
+    if (closeBtn) closeBtn.addEventListener('click', () => close(false));
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) close(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close(false);
+    });
+
+    window.addEventListener('popstate', () => close(true));
+}
+
+wireModal(
+    document.getElementById('process-modal'),
+    document.getElementById('open-process-modal'),
+    document.getElementById('close-process-modal')
+);
+
+wireModal(
+    document.getElementById('email-modal'),
+    document.getElementById('open-email-modal'),
+    document.getElementById('close-email-modal')
+);
+
 const copyEmailBtn = document.getElementById('copy-email-btn');
-
-if (openEmailModal && emailModalOverlay) {
-    openEmailModal.addEventListener('click', (e) => {
-        e.preventDefault();
-        emailModalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-
-    closeEmailModal.addEventListener('click', () => {
-        emailModalOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-
-    emailModalOverlay.addEventListener('click', (e) => {
-        if (e.target === emailModalOverlay) {
-            emailModalOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && emailModalOverlay.classList.contains('active')) {
-            emailModalOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-}
 
 if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', () => {

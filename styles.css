@@ -809,6 +809,9 @@ body {
 /* Footer */
 .site-footer {
     padding: var(--spacing-section) 0;
+    /* Clear the fixed .chat-launcher (bottom:24px + ~50px tall) so it never
+       sits on top of the footer links. */
+    padding-bottom: calc(var(--spacing-section) + 90px);
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -901,31 +904,41 @@ body {
     max-width: 680px;
     width: 100%;
     max-height: 85vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+    /* The shell no longer scrolls — .process-modal-body does. That keeps the
+       title and the absolutely-positioned close button fixed in place instead
+       of scrolling away with the content. */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     padding: 2.5rem;
     position: relative;
     transform: translateY(20px);
     transition: transform 0.3s ease;
+}
+
+.process-modal-body {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
 }
 
-.process-modal::-webkit-scrollbar {
+.process-modal-body::-webkit-scrollbar {
     width: 6px;
 }
 
-.process-modal::-webkit-scrollbar-track {
+.process-modal-body::-webkit-scrollbar-track {
     background: transparent;
     margin: var(--border-radius) 0;
 }
 
-.process-modal::-webkit-scrollbar-thumb {
+.process-modal-body::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.15);
     border-radius: 3px;
 }
 
-.process-modal::-webkit-scrollbar-thumb:hover {
+.process-modal-body::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.25);
 }
 
@@ -1010,6 +1023,9 @@ body {
     border-radius: var(--border-radius);
     max-width: 480px;
     width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 2.5rem;
     position: relative;
     transform: translateY(20px);
@@ -1573,4 +1589,83 @@ body {
     .cds-hover .cds-sweep {
         animation: none;
     }
+}
+
+
+/* ==========================================================================
+   Modals on mobile — full screen with a pinned header.
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .process-modal-overlay,
+    .email-modal-overlay {
+        padding: 0;
+        align-items: stretch;
+        justify-content: stretch;
+    }
+
+    .process-modal,
+    .email-modal {
+        max-width: none;
+        width: 100%;
+        max-height: none;
+        height: 100dvh;
+        border-radius: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transform: translateY(24px);
+    }
+
+    @supports not (height: 100dvh) {
+        .process-modal,
+        .email-modal { height: 100vh; }
+    }
+
+    /* Title becomes the sticky header bar; the close button rides with it. */
+    .process-modal-title,
+    .email-modal .process-modal-title {
+        flex-shrink: 0;
+        margin: 0;
+        padding: calc(1.25rem + env(safe-area-inset-top, 0px)) 4rem 1.25rem 1.5rem;
+        font-size: 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        background: white;
+    }
+
+    .process-modal-close {
+        top: calc(1.25rem + env(safe-area-inset-top, 0px));
+        right: 1rem;
+        width: 44px;
+        height: 44px;
+        z-index: 1;
+    }
+    /* Rotating a 44px hit area under a thumb reads as a glitch. */
+    .process-modal-close:hover { transform: none; }
+
+    .process-modal-body {
+        flex: 1;
+        padding: 1.5rem 1.5rem calc(2rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .email-modal-subtext,
+    .email-copy-row {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .email-modal-subtext { margin-top: 1.5rem; }
+    .email-modal { text-align: left; }
+    .email-copy-row { justify-content: flex-start; }
+}
+
+/* Set by script.js while a modal is open. Preserves scroll position, which
+   body{overflow:hidden} does not on iOS. */
+body.modal-open {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
 }
