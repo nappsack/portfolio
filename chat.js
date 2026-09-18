@@ -133,12 +133,23 @@
         var el = document.createElement('div');
         el.className = 'chat-msg chat-msg--' + role;
         els.log.appendChild(el);
-        scroll();
+        stick = true;
+        scroll(true);
         return el;
     }
 
-    function scroll() {
-        els.log.scrollTop = els.log.scrollHeight;
+    /** True while the log is parked at (or near) the bottom. Streaming only
+        auto-scrolls when this holds, so scrolling up to re-read an answer
+        isn't fought by every incoming token. */
+    var stick = true;
+
+    function scroll(force) {
+        if (force || stick) els.log.scrollTop = els.log.scrollHeight;
+    }
+
+    function watchStick() {
+        var gap = els.log.scrollHeight - els.log.scrollTop - els.log.clientHeight;
+        stick = gap < 48;
     }
 
     /**
@@ -209,7 +220,7 @@
             wrap.appendChild(b);
         });
         els.log.appendChild(wrap);
-        scroll();
+        scroll(true);
     }
 
     /* ------------------------------------------------------------- talking --- */
@@ -252,7 +263,7 @@
                 // against a dangling user turn.
                 history.pop();
             }
-            els.input.focus();
+            if (!isMobile()) els.input.focus({ preventScroll: true });
         }
 
         function fail(msg) {
@@ -318,6 +329,75 @@
     /* --------------------------------------------------------------- open --- */
 
     var lastFocus = null;
+    var lockedY = 0;
+    var pushedState = false;
+
+    function isMobile() {
+        return window.matchMedia('(max-width: 560px)').matches;
+    }
+
+    /* The panel is sized from the VisualViewport rather than the layout
+       viewport. On iOS the layout viewport does not shrink when the keyboard
+       opens, so a 100%-height fixed panel keeps its full height, pushes the
+       composer under the keyboard, and the browser scrolls the page to chase
+       the caret. Tracking visualViewport.height/offsetTop keeps the panel
+       glued to what the user can actually see. */
+    function syncViewport() {
+        var vv = window.visualViewport;
+        if (!vv || !isMobile()) return;
+        els.panel.style.setProperty('--chat-vh', vv.height + 'px');
+        els.panel.style.setProperty('--chat-vv-top', vv.offsetTop + 'px');
+        scroll();
+    }
+
+    function clearViewport() {
+        els.panel.style.removeProperty('--chat-vh');
+        els.panel.style.removeProperty('--chat-vv-top');
+    }
+
+    /* overflow:hidden alone does not hold on iOS and loses scroll position.
+       Pinning the body and restoring scrollY on release is what actually
+       stops the page moving behind a full-screen panel. */
+    var ORIGINAL_RESTORATION = (function () {
+        try { return window.history.scrollRestoration || 'auto'; }
+        catch (e) { return null; }
+    })();
+
+    function lockScroll() {
+        lockedY = window.scrollY || window.pageYOffset || 0;
+        // Every close path pops our dummy entry, and the browser's automatic
+        // scroll restoration for that entry runs after we restore, overriding
+        // it. Turn it off for the life of the overlay only.
+        try { window.history.scrollRestoration = 'manual'; } catch (e) {}
+        document.body.style.top = (-lockedY) + 'px';
+        document.body.classList.add('chat-open');
+    }
+
+    function unlockScroll() {
+        document.body.classList.remove('chat-open');
+        document.body.style.top = '';
+        // The site sets scroll-behavior:smooth globally, which would animate
+        // this restore and read as the page sliding on its own.
+        restoreScroll(lockedY);
+        // Run again after the popstate settles, then hand scroll restoration
+        // back to the browser.
+        var y = lockedY;
+        requestAnimationFrame(function () {
+            restoreScroll(y);
+            requestAnimationFrame(function () { restoreScroll(y); });
+            if (ORIGINAL_RESTORATION) {
+                try { window.history.scrollRestoration = ORIGINAL_RESTORATION; } catch (e) {}
+            }
+        });
+    }
+
+    function restoreScroll(y) {
+        var root = document.documentElement;
+        var prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0, y);
+        root.style.scrollBehavior = prev;
+    }
 
     function open() {
         lastFocus = document.activeElement;
@@ -328,13 +408,48 @@
             bubble('bot').textContent = GREETING;
             suggestions();
         }
-        els.input.focus();
+
+        if (isMobile()) {
+            lockScroll();
+            syncViewport();
+            // Give the system Back gesture something to pop, so it closes the
+            // chat instead of leaving the site.
+            try {
+                // NOTE: `history` is the conversation array in this file and
+                // shadows the global. Must go through window explicitly.
+                window.history.pushState({ chatOpen: true }, '');
+                pushedState = true;
+            } catch (e) { pushedState = false; }
+            // Opening the keyboard immediately on mobile hides the greeting
+            // behind it; let the user tap in.
+            els.panel.setAttribute('aria-modal', 'true');
+        } else {
+            els.input.focus({ preventScroll: true });
+        }
+
+        stick = true;
+        scroll(true);
     }
 
-    function shut() {
+    function shut(fromPopstate) {
         els.panel.hidden = true;
         els.launcher.hidden = false;
-        (lastFocus || els.launcher).focus();
+        els.panel.setAttribute('aria-modal', 'false');
+
+        if (document.body.classList.contains('chat-open')) unlockScroll();
+        clearViewport();
+
+        if (pushedState && !fromPopstate) {
+            pushedState = false;
+            try { window.history.back(); } catch (e) {}
+        } else {
+            pushedState = false;
+        }
+
+        // preventScroll: focus() otherwise scrolls the target into view,
+        // undoing the restore above (and animating, since html is smooth).
+        try { (lastFocus || els.launcher).focus({ preventScroll: true }); }
+        catch (e) { (lastFocus || els.launcher).focus(); }
     }
 
     /* --------------------------------------------------------------- init --- */
@@ -343,10 +458,30 @@
         build();
 
         els.launcher.addEventListener('click', open);
-        els.close.addEventListener('click', shut);
+        els.close.addEventListener('click', function () { shut(false); });
 
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && !els.panel.hidden) shut();
+            if (e.key === 'Escape' && !els.panel.hidden) shut(false);
+        });
+
+        // Back gesture / button closes the chat rather than the site.
+        window.addEventListener('popstate', function () {
+            if (!els.panel.hidden) shut(true);
+        });
+
+        els.log.addEventListener('scroll', watchStick, { passive: true });
+
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', syncViewport);
+            window.visualViewport.addEventListener('scroll', syncViewport);
+        }
+        window.addEventListener('orientationchange', function () {
+            setTimeout(syncViewport, 200);
+        });
+
+        // Keep the newest message visible once the keyboard settles.
+        els.input.addEventListener('focus', function () {
+            setTimeout(function () { syncViewport(); scroll(true); }, 250);
         });
 
         els.form.addEventListener('submit', function (e) {

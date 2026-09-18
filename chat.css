@@ -7,7 +7,10 @@
     position: fixed;
     bottom: 24px;
     right: 24px;
-    z-index: 900;
+    /* Above .header (z-index 1000, position:fixed). The header covers the top
+       ~89px of the screen, and at 901 the full-screen mobile panel sat behind
+       it — so every tap on the chat's close button hit .nav-toggle instead. */
+    z-index: 1050;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -35,7 +38,9 @@
     position: fixed;
     bottom: 24px;
     right: 24px;
-    z-index: 901;
+    /* See the note on .chat-launcher. Must clear .header (1000); the modal
+       overlays stay above this at 2000. */
+    z-index: 1100;
     display: flex;
     flex-direction: column;
     width: min(410px, calc(100vw - 32px));
@@ -228,14 +233,70 @@
 
 /* ---------------------------------------------------------------- mobile --- */
 
+/* The panel goes full-screen. Height comes from the VisualViewport (set by
+   chat.js as --chat-vh) because on iOS the layout viewport does NOT shrink
+   when the keyboard opens — only the visual one does. Using 100%/100vh here
+   is what pushes the composer under the keyboard and makes the whole thing
+   scroll-jump. dvh is the fallback for browsers without VisualViewport. */
 @media (max-width: 560px) {
     .chat-panel {
-        inset: 0;
+        left: 0;
+        right: 0;
+        top: var(--chat-vv-top, 0px);
+        bottom: auto;
         width: 100%;
-        height: 100%;
+        height: var(--chat-vh, 100dvh);
+        max-height: none;
         border-radius: 0;
+        animation: chat-in-mobile 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    @supports not (height: 100dvh) {
+        .chat-panel { height: var(--chat-vh, 100vh); }
+    }
+
     .chat-launcher { bottom: 16px; right: 16px; padding: 13px 18px; font-size: 14px; }
+
+    /* Header stays put while the log scrolls, so the close button is always
+       reachable. */
+    .chat-header {
+        flex-shrink: 0;
+        padding-top: calc(18px + env(safe-area-inset-top, 0px));
+    }
+
+    /* 32px is under the 44px minimum touch target. */
+    .chat-close { width: 44px; height: 44px; }
+    .chat-close svg { width: 20px; height: 20px; }
+
+    .chat-log { padding: 16px; }
+
+    .chat-form {
+        flex-shrink: 0;
+        padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    }
+    .chat-footnote { display: none; }
+
+    /* Anything under 16px makes iOS Safari zoom the page on focus, which is
+       the other half of the "strange scrolling" problem. */
+    .chat-form textarea { font-size: 16px; }
+}
+
+@keyframes chat-in-mobile {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Keep scroll momentum inside the log instead of chaining to the page. */
+.chat-log { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+
+/* Set by chat.js while the panel is open on mobile. Preserves scroll position,
+   which position:fixed alone does not. */
+body.chat-open {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
