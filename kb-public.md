@@ -4,7 +4,7 @@ This document is the complete and only source of truth for answering questions
 about Chris Nappi's background, experience, and work. Everything below is
 public and cleared for external sharing.
 
-Last generated: 2026-09-18
+Last generated: 2026-09-25
 
 ---
 
@@ -1080,6 +1080,27 @@ XM360 was a demanding yet rewarding project that tested my ability to drive mean
 
 Individual pieces of work, with what he did and what changed as a result.
 
+
+### Led Think's firm-wide AI case study work share at Think Week — September 2026
+- **What:** my manager assigned the Meevo AI case study work share on 2026-09-01 — *"Nappi, hoping you can lead this. a designer on his team is on three projects."* Chris led it end to end: the thesis, the argument, the deck and the takeaways, built from the engagement's own record rather than recollection. Presented twice on 2026-09-24, morning and afternoon, hybrid, in Think Space 1, to a firm-wide audience. The thesis is **expert in the loop** rather than human in the loop: AI produced the gains on Meevo because the people directing it already knew the work, and the same class of tool used without that expertise produced the design-system debt the discrepancy audit later found. a designer on his team co-presented the prototyping segment, which is her own method. Two passes shaped it beyond the writing. An **attribution pass** established what belonged to whom — a colleague's import of Meevo's help documentation is what made ticket elaboration reliable, and the Claude Code prototyping tool is a designer on his team's sole build — and a **verification pass** rejected two claims the deck had been carrying: a design skill asserted to have shaped work it never touched, and a color-contrast finding computed against a pairing that does not exist in the product.
+- **Impact:** Recognized the same morning by my manager, and separately and unprompted in #think-week by a peer design lead who asked the firm to catch the afternoon session or request the deck. Chris posted the session recording firm-wide on 2026-09-25. Whether it converts into a sellable service offering — my manager's stated ambition when she assigned it, alongside road-showing the Meevo work and sitting in on sales sessions — is open and worth watching.
+- **Role:** led (a designer on his team co-presented)
+- **Skills:** narrative construction from an evidence base, presentation design, public speaking, attribution discipline
+- **Recognition:** *"Very well done, proud of you two. Seriously so proud to have you on my team and see your amazing work."* — my manager, Slack, 2026-09-24 · *"Absolutely AMAZING work share about the learnings around incorporating AI output into the MEEVO work. Make sure to join the afternoon session, check out the recording, or ask to see the presentation deck."* — another design lead at Think, #think-week, 2026-09-24
+
+### The Appointment Book redesign launched at Meevo Live and led all new features in customer demand — September 2026
+- **What:** The Appointment Book redesign Chris led as design lead from Phase 102 onward was revealed at **Meevo Live 2026**, the client's annual customer conference, as a live demo inside the keynote. This entry records the market reception; the design work and its full move set are in *Delivered the Appointment Book redesign — 2025 → 2026*, whose Impact line had named Meevo Live as the workstream's lead priority. a designer on his team, another designer on the team and a colleague contributed features inside the workstream.
+- **Impact:** **85 customers signed up for early access, the leading area of interest among every new feature unveiled.** The keynote demo drew multiple rounds of applause, and one attendee shouted "thank you" from the audience. First direct evidence of end-customer reception for a workstream previously measured only by feature counts and click volume.
+- **Role:** led
+- **Skills:** complex workflow design, product launch readiness
+- **Recognition:** *"The new appt book reveal at Meevo Live went incredibly well! The keynote included a quick demo which was met with multiple rounds of applause throughout and someone literally shouting 'thank you' at one point. We had 85 customers sign up for interest in early access — it was the leading area of interest among all new features unveiled."* — the client's director of product management (Meevo), 2026-09-24
+
+### The Meevo team won Best Ensemble at the 2026 Thinkie Awards — September 2026
+- **What:** Think's annual Thinkie Awards, 2026-09-24. **Best Ensemble** went to the Meevo engagement team at the close of a 19-month, **$1.6M+** program across five phases. The award is to the team, not to an individual.
+- **Impact:** Firm-wide recognition for the engagement at its close, decided against the rest of Think's portfolio for the year, and the closing note on the hardest program Chris has led.
+- **Role:** led
+- **Skills:** team leadership across concurrent workstreams, engagement leadership
+- **Recognition:** Best Ensemble, 2026 Thinkie Awards — Think Company, 2026-09-24. Corroborated in #internal-meevo-team and by a designer on his team the following morning.
 
 ### Cut /harvest's retrieval cost ~15× by scripting what a model had been reading by hand — September 2026
 - **What:** The daily task harvest had grown expensive enough that a single run hit a spend ceiling mid-sweep. Prompted by a published claim that routing work to cheaper models cuts token cost ~90%, Chris tested that approach on his own commands before adopting it — running `/packages` and `/harvest` twice each, Opus against Haiku, on live data, and verifying both runs' claims independently rather than trusting their self-reports. The cheap model did not reason worse: it read less and reported the gap as an empty result. On `/packages` it found 1 of 4 open packages; on `/harvest` it reported Discord as a *succeeded* source with "no recent messages" while that channel had messages from that morning. The measurement also located the actual waste, which had nothing to do with model tier — the Discord sweep spent 282K tokens opening 65 channels to discover 49 were dead. So he rejected the model downgrade and scripted the retrieval instead: `discord_active.py` derives every channel's last activity from `last_message_id` snowflake arithmetic (2 API calls, zero messages read), and `packages_fetch.py` regex-extracts carrier, tracking, order number and total, leaving only the delivery-date judgment to the model. Testing the new scripts against the expensive run surfaced four defects in them before they shipped — order numbers being promoted to tracking numbers, a status regex flipping a just-shipped parcel to delivered, a dedup key too short to join one parcel's own emails — plus a recall gap in the harvest's own Gmail query, found because the strong model kept improvising around the written spec to catch a package the spec missed. A latent bug in `messages_digest.py` came out of the same pass: it read from a shared watermark that no caller except `/messages-digest` was permitted to advance, so every other caller's window grew without bound.
