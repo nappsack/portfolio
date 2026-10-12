@@ -772,3 +772,8 @@ Hosted
 Quarterly-event
 Verbatim
 Walked
+Close
+Retro
+Liked
+Helped
+End-of-engagement
