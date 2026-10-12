@@ -4,7 +4,7 @@ This document is the complete and only source of truth for answering questions
 about Chris Nappi's background, experience, and work. Everything below is
 public and cleared for external sharing.
 
-Last generated: 2026-10-08
+Last generated: 2026-10-12
 
 ---
 
@@ -1083,7 +1083,7 @@ Individual pieces of work, with what he did and what changed as a result.
 
 ### Got a designer on the team doing design-system work in Claude Code, after months of coaching — October 2026
 - **What:** Coached a designer on his team from first contact with Claude to using Claude Code for real design-system work. Walked her through git and Cloudflare for a prototype she was building with Claude (7/30), sent her the OS starter kit (8/25), and after the 10/6 1:1 wrote her a setup guide for running the Otsuka design system through Claude Code: figma-console MCP + Desktop Bridge, the figma-comments MCP, the Otsuka knowledge-base repo, documenting decisions as she goes, and example prompts. Added her to the knowledge-base repo. On 10/7 she set it up and ran a design-system audit of the Otsuka work (it proposed accessible orange substitutes; she added the 103 delivery file to the Figma links), then used it for icon-consistency work. It took months of patience before it clicked.
-- **Impact:** A designer who had been circling the tools since spring now uses them in her own work on a live client design system. Chris pointed the time it frees at "being creative, solving problems, and empathizing with the user."
+- **Impact:** A designer who had been circling the tools since spring now uses them in her own work on a live client design system. Chris pointed the time it frees at "being creative, solving problems, and empathizing with the user." By 2026-10-08 she reported using it daily for restructuring and spacing work that used to take 30–40 minutes, plus contrast checks, with her design-system decisions logged to the project knowledge base as she works (Otsuka internal design review).
 - **Role:** led
 - **Skills:** coaching, AI tooling, design systems
 
